@@ -13,14 +13,6 @@
 - **Health Analytics** with detailed progress visualization
 - **Workout Libraries** with extensive exercise databases
 - **PWA Functionality** for offline access and native app experience
-
-### 🛠️ Technology Stack
-- **Frontend**: Modern HTML5, CSS3, JavaScript (ES6+)
-- **PWA**: Service Workers, Web App Manifest, Offline Support
-- **Responsive Design**: Mobile-first approach with CSS Grid/Flexbox
-- **Analytics**: Real-time health and fitness data visualization
-- **Security**: Biometric authentication, 2FA, secure data handling
-
 ---
 
 ## 🎨 Design System & Brand Guidelines

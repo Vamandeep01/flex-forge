@@ -27,23 +27,23 @@ const App = () => (
         <Routes>
           {/* Default route redirects to splash */}
           <Route path="/" element={<Navigate to="/splash" replace />} />
-          
+
           {/* App flow routes */}
           <Route path="/splash" element={<SplashPage />} />
           <Route path="/onboarding" element={<OnboardingPage />} />
-          
+
           {/* Authentication routes */}
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/password-sent" element={<PasswordSentPage />} />
-          
+
           {/* Assessment route */}
           <Route path="/assessment" element={<AssessmentPage />} />
-          
+
           {/* Dashboard route */}
           <Route path="/dashboard" element={<DashboardPage />} />
-          
+
           {/* Catch-all route for 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>

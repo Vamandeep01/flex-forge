@@ -193,14 +193,14 @@ export default function AssessmentPage() {
     switch (currentQuestion.type) {
       case 'choice':
         return (
-          <div className="space-y-4">
+          <div className="space-y-4 max-h-[44vh] overflow-y-auto scrollbar-hide">
             {currentQuestion.options?.map((option) => (
               <button
                 key={option}
                 onClick={() => handleAnswer(option)}
                 className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${answers[currentQuestion.id] === option
-                    ? 'border-FlexForge-orange bg-FlexForge-orange/10 text-white'
-                    : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
+                  ? 'border-FlexForge-orange bg-FlexForge-orange/10 text-white'
+                  : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
                   }`}
               >
                 {option}
@@ -211,14 +211,14 @@ export default function AssessmentPage() {
 
       case 'multiple':
         return (
-          <div className="space-y-4">
+          <div className="space-y-4 max-h-[44vh] overflow-y-auto scrollbar-hide">
             {currentQuestion.options?.map((option) => (
               <button
                 key={option}
                 onClick={() => handleMultipleChoice(option)}
                 className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${selectedOptions.includes(option)
-                    ? 'border-FlexForge-orange bg-FlexForge-orange/10 text-white'
-                    : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
+                  ? 'border-FlexForge-orange bg-FlexForge-orange/10 text-white'
+                  : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
                   }`}
               >
                 {option}
@@ -258,8 +258,8 @@ export default function AssessmentPage() {
                   key={num}
                   onClick={() => handleAnswer(num)}
                   className={`aspect-square rounded-xl border-2 transition-all duration-200 ${answers[currentQuestion.id] === num
-                      ? 'border-FlexForge-orange bg-FlexForge-orange text-white'
-                      : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
+                    ? 'border-FlexForge-orange bg-FlexForge-orange text-white'
+                    : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
                     }`}
                 >
                   {num}

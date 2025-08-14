@@ -126,6 +126,23 @@
 
   /* Smooth focus styles */
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-FlexForge-orange focus-visible:ring-offset-2 focus-visible:ring-offset-dark-primary;
+    @apply focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-FlexForge-orange focus-visible:ring-offset-0 focus-visible:ring-offset-dark-primary;
   }
+}
+
+
+.scrollbar-light::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scrollbar-light::-webkit-scrollbar-track {
+  @apply bg-dark-secondary;
+}
+
+.scrollbar-light::-webkit-scrollbar-thumb {
+  @apply bg-FlexForge-orange rounded-full;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
