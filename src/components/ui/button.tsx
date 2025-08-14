@@ -5,16 +5,16 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sandow-orange focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-FlexForge-orange focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default: "bg-gradient-orange text-white shadow-orange hover:shadow-lg hover:scale-[1.02]",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-dark-tertiary bg-dark-secondary text-white hover:bg-dark-tertiary hover:border-sandow-orange/50",
+        outline: "border-2 border-dark-tertiary bg-dark-secondary text-white hover:bg-dark-tertiary hover:border-FlexForge-orange/50",
         secondary: "bg-dark-secondary text-white hover:bg-dark-tertiary",
         ghost: "text-white hover:bg-dark-secondary",
-        link: "text-sandow-orange underline-offset-4 hover:underline hover:text-sandow-orange-light",
+        link: "text-FlexForge-orange underline-offset-4 hover:underline hover:text-FlexForge-orange-light",
         blue: "bg-blue-accent text-white shadow-soft hover:bg-blue-accent/90 hover:scale-[1.02]",
         purple: "bg-purple-accent text-white shadow-soft hover:bg-purple-accent/90 hover:scale-[1.02]",
         green: "bg-green-accent text-white shadow-soft hover:bg-green-accent/90 hover:scale-[1.02]",
@@ -36,7 +36,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 

@@ -52,11 +52,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Sandow Brand Colors
-				sandow: {
-					orange: 'hsl(var(--sandow-orange))',
-					'orange-light': 'hsl(var(--sandow-orange-light))',
-					'orange-dark': 'hsl(var(--sandow-orange-dark))',
+				// FlexForge Brand Colors
+				FlexForge: {
+					orange: 'hsl(var(--FlexForge-orange))',
+					'orange-light': 'hsl(var(--FlexForge-orange-light))',
+					'orange-dark': 'hsl(var(--FlexForge-orange-dark))',
 				},
 				dark: {
 					primary: 'hsl(var(--dark-primary))',

@@ -25,9 +25,9 @@ export function DashboardScreen() {
         <Card className="bg-dark-secondary border-dark-tertiary p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold text-white">Today's Progress</h2>
-            <Target className="h-6 w-6 text-sandow-orange" />
+            <Target className="h-6 w-6 text-FlexForge-orange" />
           </div>
-          
+
           <div className="space-y-4">
             <div>
               <div className="flex justify-between text-sm mb-2">
@@ -36,7 +36,7 @@ export function DashboardScreen() {
               </div>
               <Progress value={75} className="h-2 bg-dark-tertiary" />
             </div>
-            
+
             <div>
               <div className="flex justify-between text-sm mb-2">
                 <span className="text-white/70">Workout Time</span>
@@ -54,7 +54,7 @@ export function DashboardScreen() {
             <h3 className="font-semibold mb-1">Start Workout</h3>
             <p className="text-white/80 text-sm">Begin your session</p>
           </Card>
-          
+
           <Card className="bg-blue-accent p-6 text-center text-white">
             <Apple className="h-8 w-8 mx-auto mb-3" />
             <h3 className="font-semibold mb-1">Nutrition</h3>
@@ -68,7 +68,7 @@ export function DashboardScreen() {
             <h2 className="text-xl font-semibold text-white">This Week</h2>
             <Award className="h-6 w-6 text-green-accent" />
           </div>
-          
+
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold text-white">5</div>
@@ -91,14 +91,14 @@ export function DashboardScreen() {
             <h2 className="text-xl font-semibold text-white">Next Workout</h2>
             <Calendar className="h-6 w-6 text-purple-accent" />
           </div>
-          
+
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <div>
                 <h3 className="text-white font-medium">Upper Body Strength</h3>
                 <p className="text-white/60 text-sm">45 minutes • Intermediate</p>
               </div>
-              <Button size="sm" className="bg-sandow-orange hover:bg-sandow-orange-dark">
+              <Button size="sm" className="bg-FlexForge-orange hover:bg-FlexForge-orange-dark">
                 Start
               </Button>
             </div>

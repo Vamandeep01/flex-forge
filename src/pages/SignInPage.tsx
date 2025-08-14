@@ -52,7 +52,7 @@ export default function SignInPage() {
   return (
     <div className="min-h-screen bg-dark-primary relative overflow-hidden">
       {/* Background */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${gymBg})` }}
       >
@@ -63,7 +63,7 @@ export default function SignInPage() {
       <div className="relative z-10 min-h-screen flex items-center justify-center p-6">
         <div className="w-full max-w-sm animate-fade-in space-y-6">
           <div className="text-center space-y-2">
-            <h1 className="text-3xl font-bold text-white">Sign In To Sandow</h1>
+            <h1 className="text-3xl font-bold text-white">Sign In To FlexForge</h1>
             <p className="text-white/70">Let's personalize your fitness with AI</p>
           </div>
 
@@ -77,9 +77,8 @@ export default function SignInPage() {
                   placeholder="elementary221b@gmail.com"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`pl-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${
-                    errors.email ? 'border-red-500' : 'border-dark-tertiary'
-                  }`}
+                  className={`pl-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.email ? 'border-red-500' : 'border-dark-tertiary'
+                    }`}
                 />
               </div>
               {errors.email && <ValidationMessage message={errors.email} />}
@@ -94,9 +93,8 @@ export default function SignInPage() {
                   placeholder="************"
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
-                  className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${
-                    errors.password ? 'border-red-500' : 'border-dark-tertiary'
-                  }`}
+                  className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.password ? 'border-red-500' : 'border-dark-tertiary'
+                    }`}
                 />
                 <IconButton
                   type="button"
@@ -112,7 +110,7 @@ export default function SignInPage() {
             </div>
           </div>
 
-          <Button 
+          <Button
             onClick={handleSignIn}
             className="w-full bg-gradient-orange text-white font-semibold h-14 rounded-xl shadow-orange hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
           >
@@ -134,16 +132,16 @@ export default function SignInPage() {
           <div className="text-center space-y-2">
             <p className="text-white/70">
               Don't have an account?{' '}
-              <Link 
+              <Link
                 to="/signup"
-                className="text-sandow-orange hover:text-sandow-orange-light transition-colors font-medium"
+                className="text-FlexForge-orange hover:text-FlexForge-orange-light transition-colors font-medium"
               >
                 Sign Up.
               </Link>
             </p>
-            <Link 
+            <Link
               to="/reset-password"
-              className="text-sandow-orange hover:text-sandow-orange-light transition-colors font-medium"
+              className="text-FlexForge-orange hover:text-FlexForge-orange-light transition-colors font-medium"
             >
               Forgot Password
             </Link>

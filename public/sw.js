@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sandow-ai-v1';
+const CACHE_NAME = 'FlexForge-ai-v1';
 const urlsToCache = [
   '/',
   '/static/js/bundle.js',

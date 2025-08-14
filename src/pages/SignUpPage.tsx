@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { Eye, EyeOff, Mail, Lock, Instagram, Facebook, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input" 
+import { Input } from "@/components/ui/input"
 import { IconButton } from "@/components/ui/icon-button"
 import { ValidationMessage } from "@/components/ui/validation-message"
 import gymBg from "@/assets/gym-bg.jpg"
@@ -62,7 +62,7 @@ export default function SignUpPage() {
   return (
     <div className="min-h-screen bg-dark-primary relative overflow-hidden">
       {/* Background */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${gymBg})` }}
       >
@@ -87,9 +87,8 @@ export default function SignUpPage() {
                   placeholder="elementary221b@gmail.com"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`pl-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${
-                    errors.email ? 'border-red-500' : 'border-dark-tertiary'
-                  }`}
+                  className={`pl-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.email ? 'border-red-500' : 'border-dark-tertiary'
+                    }`}
                 />
               </div>
               {errors.email && <ValidationMessage message={errors.email} />}
@@ -104,9 +103,8 @@ export default function SignUpPage() {
                   placeholder="*************"
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
-                  className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${
-                    errors.password ? 'border-red-500' : 'border-dark-tertiary'
-                  }`}
+                  className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.password ? 'border-red-500' : 'border-dark-tertiary'
+                    }`}
                 />
                 <IconButton
                   type="button"
@@ -130,9 +128,8 @@ export default function SignUpPage() {
                   placeholder="elementary221"
                   value={formData.confirmPassword}
                   onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-                  className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${
-                    errors.confirmPassword ? 'border-red-500' : 'border-dark-tertiary'
-                  }`}
+                  className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.confirmPassword ? 'border-red-500' : 'border-dark-tertiary'
+                    }`}
                 />
                 <IconButton
                   type="button"
@@ -148,7 +145,7 @@ export default function SignUpPage() {
             </div>
           </div>
 
-          <Button 
+          <Button
             onClick={handleSignUp}
             className="w-full bg-gradient-orange text-white font-semibold h-14 rounded-xl shadow-orange hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
           >
@@ -158,9 +155,9 @@ export default function SignUpPage() {
           <div className="text-center">
             <p className="text-white/70">
               Already have an account?{' '}
-              <Link 
+              <Link
                 to="/signin"
-                className="text-sandow-orange hover:text-sandow-orange-light transition-colors font-medium"
+                className="text-FlexForge-orange hover:text-FlexForge-orange-light transition-colors font-medium"
               >
                 Sign In.
               </Link>

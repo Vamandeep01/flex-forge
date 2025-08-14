@@ -1,6 +1,6 @@
 {
-  "name": "Sandow AI Fitness Coach",
-  "short_name": "Sandow.ai",
+  "name": "FlexForge AI Fitness Coach",
+  "short_name": "FlexForge",
   "description": "Your personal AI fitness coach for tracking, health monitoring, and nutrition guidance",
   "start_url": "/",
   "display": "standalone",
@@ -19,7 +19,11 @@
       "type": "image/png"
     }
   ],
-  "categories": ["health", "fitness", "lifestyle"],
+  "categories": [
+    "health",
+    "fitness",
+    "lifestyle"
+  ],
   "screenshots": [
     {
       "src": "/screenshot-mobile.png",

@@ -2,30 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Sandow.ai Fitness App Design System */
+/* FlexForge Fitness App Design System */
 
 @layer base {
   :root {
-    /* Sandow Brand Colors */
-    --sandow-orange: 16 100% 60%; /* #FF6B35 */
-    --sandow-orange-light: 16 100% 70%;
-    --sandow-orange-dark: 16 100% 50%;
-    
+    /* FlexForge Brand Colors */
+    --FlexForge-orange: 16 100% 60%;
+    /* #FF6B35 */
+    --FlexForge-orange-light: 16 100% 70%;
+    --FlexForge-orange-dark: 16 100% 50%;
+
     /* Dark Theme Base */
-    --dark-primary: 0 0% 10%; /* #1a1a1a */
-    --dark-secondary: 0 0% 16%; /* #2a2a2a */
-    --dark-tertiary: 0 0% 20%; /* #333333 */
-    
+    --dark-primary: 0 0% 10%;
+    /* #1a1a1a */
+    --dark-secondary: 0 0% 16%;
+    /* #2a2a2a */
+    --dark-tertiary: 0 0% 20%;
+    /* #333333 */
+
     /* Accent Colors */
-    --blue-accent: 214 76% 61%; /* #4A90E2 */
-    --purple-accent: 264 52% 47%; /* #8E44AD */
-    --green-accent: 95 60% 50%; /* #6AC259 */
-    
+    --blue-accent: 214 76% 61%;
+    /* #4A90E2 */
+    --purple-accent: 264 52% 47%;
+    /* #8E44AD */
+    --green-accent: 95 60% 50%;
+    /* #6AC259 */
+
     /* Text Colors */
     --text-white: 0 0% 100%;
     --text-gray: 0 0% 75%;
     --text-muted: 0 0% 60%;
-    
+
     /* Core Theme Variables */
     --background: var(--dark-primary);
     --foreground: var(--text-white);
@@ -33,7 +40,7 @@
     --card-foreground: var(--text-white);
     --popover: var(--dark-secondary);
     --popover-foreground: var(--text-white);
-    --primary: var(--sandow-orange);
+    --primary: var(--FlexForge-orange);
     --primary-foreground: var(--text-white);
     --secondary: var(--dark-tertiary);
     --secondary-foreground: var(--text-white);
@@ -45,19 +52,19 @@
     --destructive-foreground: var(--text-white);
     --border: var(--dark-tertiary);
     --input: var(--dark-tertiary);
-    --ring: var(--sandow-orange);
+    --ring: var(--FlexForge-orange);
     --radius: 0.75rem;
-    
+
     /* Gradients */
-    --gradient-orange: linear-gradient(135deg, hsl(var(--sandow-orange)), hsl(var(--sandow-orange-dark)));
+    --gradient-orange: linear-gradient(135deg, hsl(var(--FlexForge-orange)), hsl(var(--FlexForge-orange-dark)));
     --gradient-dark: linear-gradient(180deg, hsl(var(--dark-primary)), hsl(var(--dark-secondary)));
     --gradient-card: linear-gradient(145deg, hsl(var(--dark-secondary)), hsl(var(--dark-tertiary)));
-    
+
     /* Shadows */
-    --shadow-orange: 0 10px 30px -10px hsl(var(--sandow-orange) / 0.3);
+    --shadow-orange: 0 10px 30px -10px hsl(var(--FlexForge-orange) / 0.3);
     --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.3);
     --shadow-soft: 0 4px 16px -4px hsl(0 0% 0% / 0.2);
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -74,43 +81,51 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Touch improvements for mobile */
-  input, button, textarea, select {
+  input,
+  button,
+  textarea,
+  select {
     @apply touch-manipulation;
   }
-  
+
   /* Prevent zoom on iOS when focusing inputs */
-  input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea {
     font-size: 16px;
   }
-  
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   ::-webkit-scrollbar-track {
     @apply bg-dark-secondary;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-sandow-orange rounded-full;
+    @apply bg-FlexForge-orange rounded-full;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-sandow-orange-dark;
+    @apply bg-FlexForge-orange-dark;
   }
 }
 
 @layer components {
+
   /* Custom progress bar styles */
-  .progress-indicator > div {
+  .progress-indicator>div {
     @apply bg-gradient-orange;
   }
-  
+
   /* Smooth focus styles */
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sandow-orange focus-visible:ring-offset-2 focus-visible:ring-offset-dark-primary;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-FlexForge-orange focus-visible:ring-offset-2 focus-visible:ring-offset-dark-primary;
   }
 }

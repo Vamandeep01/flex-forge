@@ -13,7 +13,7 @@ interface OnboardingScreenProps {
 const onboardingSlides = [
   {
     title: "Welcome To",
-    subtitle: "sandow.ai UI Kit!",
+    subtitle: "FlexForge UI Kit!",
     description: "Your personal AI fitness assistant",
     image: gymBg,
     showButton: true
@@ -42,7 +42,7 @@ const onboardingSlides = [
   {
     title: "Nutrition & Diet",
     subtitle: "Guidance",
-    description: "Lose weight and get fit with sandow! 🥗",
+    description: "Lose weight and get fit with FlexForge! 🥗",
     image: gymBg,
     showButton: false
   },
@@ -77,7 +77,7 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
   return (
     <div className="min-h-screen bg-dark-primary relative overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${slide.image})` }}
       >
@@ -88,14 +88,14 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-6">
-          <button 
+          <button
             onClick={() => onComplete()}
             className="text-white/60 hover:text-white transition-colors"
           >
             Skip
           </button>
-          <ProgressDots 
-            total={onboardingSlides.length} 
+          <ProgressDots
+            total={onboardingSlides.length}
             current={currentSlide}
           />
           <div className="w-12" /> {/* Spacer */}
@@ -112,13 +112,13 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
                 {slide.subtitle}
               </h2>
             </div>
-            
+
             <p className="text-white/80 text-lg leading-relaxed max-w-sm">
               {slide.description}
             </p>
 
             {slide.showButton && (
-              <Button 
+              <Button
                 onClick={nextSlide}
                 variant="default"
                 size="lg"

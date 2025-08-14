@@ -42,7 +42,7 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
   const renderSignInScreen = () => (
     <div className="space-y-6">
       <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold text-white">Sign In To Sandow</h1>
+        <h1 className="text-3xl font-bold text-white">Sign In To FlexForge</h1>
         <p className="text-white/70">Let's personalize your fitness with AI</p>
       </div>
 
@@ -85,7 +85,7 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
         </div>
       </div>
 
-      <Button 
+      <Button
         onClick={onComplete}
         className="w-full bg-gradient-orange text-white font-semibold h-14 rounded-xl shadow-orange hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
       >
@@ -107,16 +107,16 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
       <div className="text-center space-y-2">
         <p className="text-white/70">
           Don't have an account?{' '}
-          <button 
+          <button
             onClick={() => setCurrentScreen('signup')}
-            className="text-sandow-orange hover:text-sandow-orange-light transition-colors font-medium"
+            className="text-FlexForge-orange hover:text-FlexForge-orange-light transition-colors font-medium"
           >
             Sign Up.
           </button>
         </p>
-        <button 
+        <button
           onClick={() => setCurrentScreen('reset')}
-          className="text-sandow-orange hover:text-sandow-orange-light transition-colors font-medium"
+          className="text-FlexForge-orange hover:text-FlexForge-orange-light transition-colors font-medium"
         >
           Forgot Password
         </button>
@@ -178,9 +178,8 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
               placeholder="elementary221"
               value={formData.confirmPassword}
               onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-              className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${
-                passwordError ? 'border-red-500' : 'border-dark-tertiary'
-              }`}
+              className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${passwordError ? 'border-red-500' : 'border-dark-tertiary'
+                }`}
             />
             <IconButton
               type="button"
@@ -201,7 +200,7 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
         </div>
       </div>
 
-      <Button 
+      <Button
         onClick={handleSignUp}
         className="w-full bg-gradient-orange text-white font-semibold h-14 rounded-xl shadow-orange hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
       >
@@ -211,9 +210,9 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
       <div className="text-center">
         <p className="text-white/70">
           Already have an account?{' '}
-          <button 
+          <button
             onClick={() => setCurrentScreen('signin')}
-            className="text-sandow-orange hover:text-sandow-orange-light transition-colors font-medium"
+            className="text-FlexForge-orange hover:text-FlexForge-orange-light transition-colors font-medium"
           >
             Sign In.
           </button>
@@ -261,7 +260,7 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
         </div>
       </div>
 
-      <Button 
+      <Button
         onClick={handleResetPassword}
         className="w-full bg-gradient-orange text-white font-semibold h-14 rounded-xl shadow-orange hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
       >
@@ -282,7 +281,7 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
         </p>
       </div>
 
-      <Button 
+      <Button
         onClick={() => setCurrentScreen('reset')}
         className="w-full bg-gradient-orange text-white font-semibold h-14 rounded-xl shadow-orange hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
       >
@@ -302,7 +301,7 @@ export function AuthScreens({ onComplete }: AuthScreensProps) {
   return (
     <div className="min-h-screen bg-dark-primary relative overflow-hidden">
       {/* Background */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${gymBg})` }}
       >

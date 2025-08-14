@@ -154,11 +154,10 @@ export function AssessmentFlow({ onComplete }: AssessmentFlowProps) {
               <button
                 key={option}
                 onClick={() => handleAnswer(option)}
-                className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${
-                  answers[currentQuestion.id] === option
-                    ? 'border-sandow-orange bg-sandow-orange/10 text-white'
-                    : 'border-dark-tertiary bg-dark-secondary text-white hover:border-sandow-orange/50'
-                }`}
+                className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${answers[currentQuestion.id] === option
+                    ? 'border-FlexForge-orange bg-FlexForge-orange/10 text-white'
+                    : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
+                  }`}
               >
                 {option}
               </button>
@@ -173,11 +172,10 @@ export function AssessmentFlow({ onComplete }: AssessmentFlowProps) {
               <button
                 key={option}
                 onClick={() => handleMultipleChoice(option)}
-                className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${
-                  selectedOptions.includes(option)
-                    ? 'border-sandow-orange bg-sandow-orange/10 text-white'
-                    : 'border-dark-tertiary bg-dark-secondary text-white hover:border-sandow-orange/50'
-                }`}
+                className={`w-full p-4 rounded-xl border-2 transition-all duration-200 text-left ${selectedOptions.includes(option)
+                    ? 'border-FlexForge-orange bg-FlexForge-orange/10 text-white'
+                    : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
+                  }`}
               >
                 {option}
               </button>
@@ -209,11 +207,10 @@ export function AssessmentFlow({ onComplete }: AssessmentFlowProps) {
                 <button
                   key={num}
                   onClick={() => handleAnswer(num)}
-                  className={`aspect-square rounded-xl border-2 transition-all duration-200 ${
-                    answers[currentQuestion.id] === num
-                      ? 'border-sandow-orange bg-sandow-orange text-white'
-                      : 'border-dark-tertiary bg-dark-secondary text-white hover:border-sandow-orange/50'
-                  }`}
+                  className={`aspect-square rounded-xl border-2 transition-all duration-200 ${answers[currentQuestion.id] === num
+                      ? 'border-FlexForge-orange bg-FlexForge-orange text-white'
+                      : 'border-dark-tertiary bg-dark-secondary text-white hover:border-FlexForge-orange/50'
+                    }`}
                 >
                   {num}
                 </button>
@@ -244,11 +241,11 @@ export function AssessmentFlow({ onComplete }: AssessmentFlowProps) {
           >
             <ChevronLeft className="h-6 w-6" />
           </IconButton>
-          
+
           <span className="text-white/60 text-sm font-medium">
             {currentStep + 1} of {assessmentQuestions.length}
           </span>
-          
+
           <div className="w-10" /> {/* Spacer */}
         </div>
 
@@ -261,7 +258,7 @@ export function AssessmentFlow({ onComplete }: AssessmentFlowProps) {
           <div className="w-16 h-16 bg-gradient-orange rounded-2xl flex items-center justify-center mx-auto">
             <currentQuestion.icon className="h-8 w-8 text-white" />
           </div>
-          
+
           <h1 className="text-2xl font-bold text-white leading-tight">
             {currentQuestion.question}
           </h1>

@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>Sandow.ai - AI Fitness Coach</title>
-    <meta name="description" content="Your personal AI fitness coach for tracking, health monitoring, and nutrition guidance. Start your fitness journey today!" />
-    <meta name="author" content="Sandow.ai" />
-    <meta name="theme-color" content="#FF6B35" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Sandow.ai" />
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    
-    <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>FlexForge - AI Fitness Coach</title>
+  <meta name="description"
+    content="Your personal AI fitness coach for tracking, health monitoring, and nutrition guidance. Start your fitness journey today!" />
+  <meta name="author" content="FlexForge" />
+  <meta name="theme-color" content="#FF6B35" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="FlexForge" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Sandow.ai - AI Fitness Coach" />
-    <meta property="og:description" content="Your personal AI fitness coach for tracking, health monitoring, and nutrition guidance" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/icon-512.png" />
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sandow.ai - AI Fitness Coach" />
-    <meta name="twitter:description" content="Your personal AI fitness coach for tracking, health monitoring, and nutrition guidance" />
-    <meta name="twitter:image" content="/icon-512.png" />
-  </head>
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- PWA Service Worker -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-              console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
-            });
-        });
-      }
-    </script>
-  </body>
+  <!-- Open Graph -->
+  <meta property="og:title" content="FlexForge - AI Fitness Coach" />
+  <meta property="og:description"
+    content="Your personal AI fitness coach for tracking, health monitoring, and nutrition guidance" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/icon-512.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FlexForge - AI Fitness Coach" />
+  <meta name="twitter:description"
+    content="Your personal AI fitness coach for tracking, health monitoring, and nutrition guidance" />
+  <meta name="twitter:image" content="/icon-512.png" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- PWA Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+</body>
+
 </html>

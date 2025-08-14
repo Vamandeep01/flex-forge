@@ -15,7 +15,7 @@ export function ProgressDots({ total, current, className }: ProgressDotsProps) {
           className={cn(
             "h-2 w-2 rounded-full transition-all duration-300",
             index === current
-              ? "bg-sandow-orange w-6"
+              ? "bg-FlexForge-orange w-6"
               : "bg-muted-foreground/30"
           )}
         />

@@ -36,7 +36,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
 
         {/* Brand */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold tracking-tight">sandow.ai</h1>
+          <h1 className="text-4xl font-bold tracking-tight">FlexForge</h1>
           <p className="text-white/80 text-lg font-medium">
             Your personal AI fitness coach
           </p>
