@@ -1,12 +1,9 @@
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Heart, Users, Target, Award, Mail, Globe, Twitter, Instagram } from 'lucide-react';
+import { Heart, Users, Target, Award, Mail, Globe, Twitter, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ProfileLayout } from '../components/layout/ProfileLayout';
 
 const AboutUsPage = () => {
-  const navigate = useNavigate();
-
   const features = [
     {
       icon: Target,
@@ -33,23 +30,7 @@ const AboutUsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-dark-primary border-b border-dark-tertiary">
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate(-1)}
-            className="text-white hover:bg-dark-secondary"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-semibold text-white">About Us</h1>
-          <div className="w-10" />
-        </div>
-      </div>
-
+    <ProfileLayout title="About Us">
       {/* App Logo & Intro */}
       <div className="p-6 text-center border-b border-dark-tertiary">
         <div className="w-20 h-20 bg-gradient-orange rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -63,8 +44,8 @@ const AboutUsPage = () => {
       <div className="p-6 border-b border-dark-tertiary">
         <h3 className="text-lg font-semibold text-white mb-3">Our Mission</h3>
         <p className="text-white/80 leading-relaxed">
-          FlexForge Fitness is dedicated to empowering individuals on their fitness journey. 
-          We believe that everyone deserves access to personalized, effective, and enjoyable 
+          FlexForge Fitness is dedicated to empowering individuals on their fitness journey.
+          We believe that everyone deserves access to personalized, effective, and enjoyable
           fitness solutions that fit their lifestyle.
         </p>
       </div>
@@ -129,10 +110,10 @@ const AboutUsPage = () => {
       {/* Copyright */}
       <div className="p-6 pt-0 text-center">
         <p className="text-white/50 text-xs">
-          © 2024 FlexForge Fitness. All rights reserved.
+          © {new Date().getFullYear()} FlexForge Fitness. All rights reserved.
         </p>
       </div>
-    </div>
+    </ProfileLayout>
   );
 };
 

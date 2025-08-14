@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthGuard } from "@/components/auth/AuthGuard";
+import { AuthGuard } from "@/components/guardComp/AuthGuard";
 
 // Import all page components
 import SplashPage from "./pages/SplashPage";
@@ -33,6 +33,7 @@ import AnalyticsPage from "./pages/AnalyticsPage";
 import AddWorkoutPage from "./pages/AddWorkoutPage";
 import NutritionPage from "./pages/NutritionPage";
 import SearchPage from "./pages/SearchPage";
+import { MobileLayout } from "./components/layout/MobileLayout";
 
 const queryClient = new QueryClient();
 
@@ -100,7 +101,9 @@ const App = () => (
 
           <Route path="/dashboard" element={
             <AuthGuard>
-              <DashboardPage />
+              <MobileLayout showBottomNav={true}>
+                <DashboardPage />
+              </MobileLayout>
             </AuthGuard>
           } />
 
@@ -113,7 +116,9 @@ const App = () => (
           {/* Navigation pages */}
           <Route path="/analytics" element={
             <AuthGuard>
-              <AnalyticsPage />
+              <MobileLayout showBottomNav={true}>
+                <AnalyticsPage />
+              </MobileLayout>
             </AuthGuard>
           } />
 

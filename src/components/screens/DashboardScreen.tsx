@@ -19,6 +19,7 @@ import React from 'react';
 import ActivitiesWidget from "../dashboardComp/ActivitiesWidget";
 import DietNutrition from "../dashboardComp/DietNutrition";
 import FitnessMetrics from "../dashboardComp/FitnessMetrics";
+import { BottomNavigation } from "../layout/BottomNavigation";
 
 
 // Date Header
@@ -225,40 +226,10 @@ const FitnessResources: React.FC = () => {
   );
 };
 
-// Bottom Navigation
-const BottomNavigation: React.FC = () => {
-  const navItems = [
-    { icon: Target, active: true },
-    { icon: BarChart3, active: false },
-    { icon: Plus, active: false, special: true },
-    { icon: Utensils, active: false },
-    { icon: User, active: false }
-  ];
-
-  return (
-    <div className="fixed bottom-0 left-0 right-0 bg-dark-secondary border-t border-dark-tertiary px-4 py-3">
-      <div className="flex items-center justify-around">
-        {navItems.map((item, index) => (
-          <button
-            key={index}
-            className={`p-3 rounded-2xl transition-colors ${item.special
-              ? 'bg-FlexForge-orange text-white shadow-lg'
-              : item.active
-                ? 'bg-FlexForge-orange/20 text-FlexForge-orange'
-                : 'text-white/60 hover:text-white'
-              }`}
-          >
-            <item.icon className="w-6 h-6" />
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const DashboardScreen: React.FC = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black py-3">
       <DateHeader />
       <UserProfileHeader />
 
@@ -270,8 +241,6 @@ const DashboardScreen: React.FC = () => {
         <VirtualAICoach />
         <FitnessResources />
       </div>
-
-      <BottomNavigation />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { ChevronLeft, ChevronRight, User, Scale, Calendar, Target, Activity, Moon, Zap, Apple } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -176,10 +176,16 @@ export default function AssessmentPage() {
       setCurrentStep(currentStep + 1)
       setSelectedOptions(answers[assessmentQuestions[currentStep + 1]?.id] || [])
     } else {
+      // Store both onboarding status and assessment answers
+      localStorage.setItem('hasAssessmentCompleted', 'true')
+      localStorage.setItem('assessmentAnswers', JSON.stringify(answers))
+
+      // Optional: Store completion timestamp
+      localStorage.setItem('assessmentCompletedAt', new Date().toISOString())
+
       navigate('/dashboard')
     }
   }
-
   const handlePrevious = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1)

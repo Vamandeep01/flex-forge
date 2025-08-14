@@ -1,12 +1,9 @@
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Bell, Mail, MessageSquare, Calendar, Zap } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Bell, Mail, MessageSquare, Calendar, Zap } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
+import { ProfileLayout } from '../components/layout/ProfileLayout';
 
 const NotificationSettingsPage = () => {
-  const navigate = useNavigate();
   const [notifications, setNotifications] = useState({
     pushNotifications: true,
     emailNotifications: false,
@@ -70,23 +67,7 @@ const NotificationSettingsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-dark-primary border-b border-dark-tertiary">
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate(-1)}
-            className="text-white hover:bg-dark-secondary"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-semibold text-white">Notifications</h1>
-          <div className="w-10" />
-        </div>
-      </div>
-
+    <ProfileLayout title="Notifications">
       {/* Notification Categories */}
       <div className="p-4 space-y-2">
         {notificationCategories.map((category) => (
@@ -131,7 +112,7 @@ const NotificationSettingsPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </ProfileLayout>
   );
 };
 

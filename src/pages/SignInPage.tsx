@@ -45,7 +45,11 @@ export default function SignInPage() {
 
   const handleSignIn = () => {
     if (validateForm()) {
-      navigate('/assessment')
+      console.log("Sign in successful")
+      localStorage.setItem('isLoggedIn', 'true')
+      setTimeout(() => {
+        navigate('/dashboard')
+      }, 200)
     }
   }
 

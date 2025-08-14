@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ChevronRight, User, Shield, Bell, Info, HelpCircle, Settings } from 'lucide-react';
+import { ChevronRight, User, Shield, Bell, Info, HelpCircle, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ProfileLayout } from '../components/layout/ProfileLayout';
 
 const ProfileSettingsPage = () => {
   const navigate = useNavigate();
@@ -53,23 +53,10 @@ const ProfileSettingsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-dark-primary border-b border-dark-tertiary">
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate(-1)}
-            className="text-white hover:bg-dark-secondary"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-semibold text-white">Profile Settings</h1>
-          <div className="w-10" />
-        </div>
-      </div>
-
+    <ProfileLayout
+      title="Profile Settings"
+      onBackClick={() => navigate('/dashboard')}
+    >
       {/* Profile Header */}
       <div className="p-6 border-b border-dark-tertiary">
         <div className="flex items-center space-x-4">
@@ -112,13 +99,14 @@ const ProfileSettingsPage = () => {
           className="w-full border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
           onClick={() => {
             // Handle sign out
+            localStorage.removeItem('profileCompleted');
             navigate('/signin');
           }}
         >
           Sign Out
         </Button>
       </div>
-    </div>
+    </ProfileLayout>
   );
 };
 

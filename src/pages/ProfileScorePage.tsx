@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { TrendingUp, User, Target } from "lucide-react"
@@ -15,7 +14,7 @@ const scoreVariants = [
   },
   {
     score: 55,
-    level: "Average Individual", 
+    level: "Average Individual",
     description: "You are Average Individual. Ready to TRAIN! Let's Go!",
     color: "blue",
     bgColor: "bg-blue-600",
@@ -24,7 +23,7 @@ const scoreVariants = [
   {
     score: 21,
     level: "Weak Individual",
-    description: "You are a Weak Individual. Ready to TRAIN! Let's Go!", 
+    description: "You are a Weak Individual. Ready to TRAIN! Let's Go!",
     color: "red",
     bgColor: "bg-red-600",
     textColor: "text-red-100"
@@ -40,13 +39,13 @@ export default function ProfileScorePage() {
   useEffect(() => {
     const randomVariant = Math.floor(Math.random() * scoreVariants.length)
     setSelectedVariant(randomVariant)
-    
+
     // Animate score counting up
     const targetScore = scoreVariants[randomVariant].score
     const duration = 2000 // 2 seconds
     const steps = 60
     const increment = targetScore / steps
-    
+
     let current = 0
     const timer = setInterval(() => {
       current += increment
@@ -62,6 +61,14 @@ export default function ProfileScorePage() {
   }, [])
 
   const currentVariant = scoreVariants[selectedVariant]
+
+  const handleContinue = () => {
+    // Mark profile as completed
+    localStorage.setItem('profileCompleted', 'true');
+
+    // Navigate to profile settings
+    navigate('/profile/settings');
+  };
 
   return (
     <div className={`min-h-screen ${currentVariant.bgColor} relative overflow-hidden`}>
@@ -82,18 +89,18 @@ export default function ProfileScorePage() {
         {/* Main Score Display */}
         <div className="space-y-6 mb-12">
           <h1 className="text-4xl font-bold text-white">Sandow Score</h1>
-          
+
           {/* Score Circle */}
           <div className="relative">
             <div className="w-48 h-48 rounded-full border-8 border-white/30 flex items-center justify-center relative overflow-hidden">
               {/* Progress Circle */}
-              <div 
+              <div
                 className="absolute inset-2 rounded-full border-8 border-white transition-all duration-1000"
                 style={{
                   background: `conic-gradient(white 0deg, white ${(currentScore / 100) * 360}deg, transparent ${(currentScore / 100) * 360}deg)`
                 }}
               />
-              
+
               {/* Score Number */}
               <div className="relative z-10 text-center">
                 <div className="text-6xl font-bold text-white">
@@ -133,23 +140,11 @@ export default function ProfileScorePage() {
 
         {/* Action Button */}
         <Button
-          onClick={() => navigate('/profile')}
+          onClick={handleContinue}
           className="w-full max-w-sm h-12 bg-white text-gray-900 hover:bg-white/90 font-semibold rounded-xl"
         >
           Let's Go Challenge! →
         </Button>
-
-        {/* Additional Options */}
-        <div className="mt-6 space-y-3">
-          <button className="text-white/80 text-sm underline">
-            View Detailed Analysis
-          </button>
-          <div className="flex gap-4 text-white/60 text-xs">
-            <span>• Personalized Plan</span>
-            <span>• Progress Tracking</span>
-            <span>• Expert Tips</span>
-          </div>
-        </div>
       </div>
     </div>
   )

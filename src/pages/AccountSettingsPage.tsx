@@ -1,12 +1,10 @@
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ChevronRight, User, Mail, Phone, Calendar, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
+import { Calendar, ChevronRight, Mail, MapPin, User } from 'lucide-react';
+import { useState } from 'react';
+import { ProfileLayout } from '../components/layout/ProfileLayout';
 
 const AccountSettingsPage = () => {
-  const navigate = useNavigate();
   const [settings, setSettings] = useState({
     emailNotifications: true,
     pushNotifications: false,
@@ -56,23 +54,7 @@ const AccountSettingsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-dark-primary border-b border-dark-tertiary">
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate(-1)}
-            className="text-white hover:bg-dark-secondary"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-semibold text-white">Account Settings</h1>
-          <div className="w-10" />
-        </div>
-      </div>
-
+    <ProfileLayout title="Account Settings">
       {/* Settings List */}
       <div className="p-4 space-y-2">
         {accountItems.map((item) => (
@@ -105,24 +87,12 @@ const AccountSettingsPage = () => {
       <div className="p-4 mt-8 space-y-3">
         <Button
           variant="outline"
-          className="w-full border-FlexForge-orange text-FlexForge-orange hover:bg-FlexForge-orange hover:text-white"
-        >
-          Export Data
-        </Button>
-        <Button
-          variant="outline"
-          className="w-full border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white"
-        >
-          Deactivate Account
-        </Button>
-        <Button
-          variant="outline"
           className="w-full border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
         >
           Delete Account
         </Button>
       </div>
-    </div>
+    </ProfileLayout>
   );
 };
 

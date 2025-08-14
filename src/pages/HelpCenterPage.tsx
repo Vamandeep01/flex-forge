@@ -1,12 +1,10 @@
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Search, MessageCircle, Book, Video, Phone, ChevronRight, HelpCircle } from 'lucide-react';
+import { Search, MessageCircle, Book, Video, Phone, ChevronRight, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { ProfileLayout } from '../components/layout/ProfileLayout';
 
 const HelpCenterPage = () => {
-  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
   const helpCategories = [
@@ -79,23 +77,7 @@ const HelpCenterPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-dark-primary border-b border-dark-tertiary">
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate(-1)}
-            className="text-white hover:bg-dark-secondary"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-semibold text-white">Help Center</h1>
-          <div className="w-10" />
-        </div>
-      </div>
-
+    <ProfileLayout title="Help Center">
       {/* Search Bar */}
       <div className="p-4">
         <div className="relative">
@@ -190,7 +172,7 @@ const HelpCenterPage = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </ProfileLayout>
   );
 };
 

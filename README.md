@@ -1014,3 +1014,418 @@ Build something amazing! 💪🚀
     * Shows status: Scanning → Completed.
 
 
+### Diet & Nutrition Management UI Overview
+
+1. Onboarding / Intro Screen
+
+   * Full-screen background with healthy food imagery.
+   * Motivational text:
+
+     * *"Nutrition & Diet, Tailored for you."*
+   * CTA button: Explore to enter the main app experience.
+
+2. Dashboard / Home Screen
+
+   * Personalized greeting with user name & health status (e.g., “Hello, Makise!”).
+   * Quick search bar to find food database items.
+   * Browse Category section (Vegetable, Fruit, Meat).
+   * Daily calorie goal prominently displayed (2500 kcal) with progress indicator.
+   * Meal suggestions with image, calories, time, and option to Add Meal.
+   * Bottom navigation bar with tabs for Home, Add Meal, Profile.
+
+3. Calorie Intake Analytics Screen
+
+   * Graph visualization of calorie consumption trend over time.
+   * Displays daily calorie count (e.g., 1,745 kcal) with remaining calories.
+   * Macro breakdown (Carbs, Protein, Fat) with grams count.
+
+4. My Meals Screen
+
+   * Horizontal calendar to pick dates.
+   * Tabs for Breakfast, Lunch, Dinner, Snack.
+   * Scrollable list of added meals with image, calories, and details.
+
+5. Add New Meal Screen
+
+   * Input fields for:
+
+     * Meal Name
+     * Meal Type (Breakfast/Lunch/Dinner/Snack)
+     * Nutritional info sliders for Protein, Carbs, Fats, Total Calories.
+   * Option to upload meal photo (camera icon).
+   * Toggle for AI-based suggestions.
+   * Button: Continue.
+
+6. Calorie Goal Setup Screen
+
+   * Slider to adjust daily calorie goal.
+   * Displays macro targets (Protein, Carbs, Fat).
+   * Progress indicator for goal alignment.
+   * CTA: Set Calorie Goal.
+
+7. Food Analysis (AI Scan) Screens
+
+   * Camera interface to scan food items for nutritional analysis.
+   * AI highlights food properties like: Calories, Vitamins, Protein.
+   * Displays analyzed result with macros and calorie info.
+   * CTA: Add Meal.
+
+8. Food Detail Screen
+
+   * High-quality image of the food item (e.g., Mandarin Orange).
+   * Displays nutritional summary:
+
+     * Protein, Carbs, Fat, Calories.
+   * Button: Add Meal.
+
+9. Meal Recipe Detail Screen
+
+   * Shows dish name, prep time, and calories.
+   * Two tabs:
+
+     * Details (overview, ingredients, calories)
+     * Recipe (step-by-step cooking instructions).
+   * Ingredients listed with checkboxes.
+   * Visual gallery of cooking steps.
+   * CTA: Add Meal.
+
+10. Meal Added Confirmation Popup
+
+    * Success message confirming meal addition.
+    * Button: Great, thanks!.
+
+
+Here’s a structured breakdown for the Personalized Coaching feature based on the image you provided:
+
+---
+
+### Personalized Coaching UI Overview
+
+#### 1. AI Coach Onboarding
+
+* Intro Screen:
+
+  * Text: *“Meet Your AI Fitness Coach.”*
+  * Button: Continue.
+* Coach Search Screen:
+
+  * Animation or progress indicator: *“Finding Fitness Coach…”*.
+
+#### 2. Coach Selection
+
+* AI Coach Profiles:
+
+  * Displays AI coach options with names (e.g., *X-AE-A-XII*, *Farnese Vandimion*).
+  * Profile includes:
+
+    * Avatar / illustration
+    * Tags (e.g., *AI*, *Premium*, *Pro*)
+    * Ratings & Reviews
+    * Specializations (Strength, Endurance, etc.)
+  * Swipe to browse multiple coaches.
+
+#### 3. Coach Detail Page
+
+* Full profile view showing:
+
+  * Coach name & specialization.
+  * Rating (e.g., 4.8) & Reviews count.
+  * Experience details (years, achievements).
+  * Action buttons: *Apply for Coaching*, *Message*, etc.
+
+#### 4. Reviews & Testimonials
+
+* Displays client feedback with rating stars and comments.
+* Sorting options: *Most Recent*, *Top Rated*.
+
+#### 5. Browse Coaches
+
+* Filter options:
+
+  * AI Coaches, Human Coaches, or both.
+  * Filter by specialization (Strength, Cardio, Mobility).
+
+#### 6. Booking a Coach
+
+* Schedule Selection:
+
+  * Calendar UI for date selection.
+  * Time slots grid (e.g., 8:30 AM, 10:00 AM).
+* Booking Summary:
+
+  * Selected coach
+  * Session details
+  * Price breakdown
+* Payment Method Selection:
+
+  * Options: Digital Pay, MasterCard, Visa, Apple Pay.
+  * Checkout Button with amount displayed.
+
+#### 7. Payment Confirmation
+
+* Success screen:
+
+  * Message: *“Payment Completed!”*.
+  * Visual with fitness gear.
+
+#### 8. Messaging with Coach
+
+* In-app chat screen with:
+
+  * Text bubbles (orange for user, dark for coach).
+  * Options to share media or files.
+
+#### 9. Session Completion & Rating
+
+* Rate Your Coach screen:
+
+  * Star rating system.
+  * Option to leave written feedback.
+* Review Submitted Screen with thank-you message.
+
+
+
+
+Here’s a detailed breakdown of the Community & Resources feature from the provided image:
+
+---
+
+### Community & Resources UI Overview
+
+#### 1. Community Landing Screen
+
+* Header: *“Fitness Community & Resources”*
+* Description: *Connect, engage, and share with coaches and fitness peers.*
+* Primary CTA: Explore Community →
+
+---
+
+#### 2. Community Feed
+
+* Content:
+
+  * Posts from members (e.g., *Makise Kurisu*) with:
+
+    * Profile image & name
+    * Post type: *Video*, *Poll*, *Image*
+    * Engagement: *Likes, Comments, Shares*
+  * Example Post Types:
+
+    * Video workouts
+    * Polls (e.g., *“Favorite Fitness Snack?”* with options and vote %).
+    * Motivational images.
+* Interaction Options:
+
+  * Like, Comment, Share
+* Bottom CTA: Add New Post +
+
+---
+
+#### 3. Content Filtering
+
+* Filter Options:
+
+  * Post Date: e.g., *January 25, 2025*
+  * Post Type: *Video, Image, Poll, Article*
+  * Length: For videos (minutes slider).
+* CTA: Apply Filter (35)
+
+---
+
+#### 4. Resources Hub
+
+* Featured Resources:
+
+  * *How AI Revolutionizes Personalized Fitness Plans*
+* Sections:
+
+  * Our Articles (list with titles & tags)
+  * Our Workshops (with price & attendee count)
+
+---
+
+#### 5. Article Detail
+
+* Title: *A Revolution in AI Wellness with Sandow*
+* Content Structure:
+
+  * Intro
+  * How it’s being tackled
+* Image in article
+* Full Article Unlock:
+
+  * CTA: Unlock Full Article – Go Pro Now!
+
+---
+
+#### 6. Workshop Detail
+
+* Title: *AI Revolution in Wellness*
+* Details:
+
+  * Date, Time, Duration
+  * Workshop overview & agenda
+* Agenda Items:
+
+  * Personalized Fitness 101
+  * Navigating AI Coaching
+* Price CTA: Join Now \$14.99
+
+---
+
+#### 7. Add New Post
+
+* Step 1: Select Post Category
+
+  * Options: *Workout, Diet, Wellness, Mindset, Supplements, AI/ML*
+* Step 2: Add Post Content
+
+  * Post Type: *Video, Gallery*
+  * Add Metrics (e.g., steps, calories)
+  * Toggle for Hide From Community or Boost Post
+* Post Success Screen:
+
+  * Confirmation message
+  * CTA: View My Post
+
+---
+
+#### 8. Notifications
+
+* Sections: *Today*, *Last Week*
+* Types:
+
+  * New Followers
+  * Unread Messages
+  * Mentions
+  * Someone Posted Video
+  * Post Boost Approved
+
+---
+
+#### 9. Profile & Messaging
+
+* Profile Screen:
+
+  * Shows user stats (posts, followers)
+  * List of user’s posts
+  * Option to Edit Profile
+* Messaging Screen:
+
+  * Chat with coach or other users
+
+---
+
+#### 10. Post Management
+
+* Delete Post Confirmation:
+
+  * Warning text
+  * CTA: Yes, Delete
+
+
+Here’s the detailed breakdown of the Virtual Fitness AI Chatbot module from your uploaded image:
+
+---
+
+### Virtual Fitness AI Chatbot – UX Flow & Features
+
+#### 1. Landing Screen
+
+* Title: *Talk to Personal AI Fitness Coach*
+* Visual: AI robotic trainer image
+* CTA: Start Chatting →
+
+---
+
+#### 2. Dashboard / My AI Chats
+
+* Stats Section:
+
+  * Example: *9,781 Total AI Conversations*
+* Chats List:
+
+  * Ongoing & previous chats with coaches (e.g., *Coach Sandow*)
+  * Status: Active or Archived
+  * Quick access to new chat
+
+---
+
+#### 3. New Chat Creation
+
+* Options for Chat Purpose:
+
+  * Diet & Nutrition
+  * Fitness Training
+  * Mental Wellness
+  * AI Q\&A
+  * Supplements Advice
+* Customization Settings:
+
+  * AI Tone: *Friendly, Professional, Motivational*
+  * Interaction Mode: *Text, Voice, Video*
+* CTA: Create AI Chat →
+
+---
+
+#### 4. AI Chatbot Interaction Screens
+
+* Standard Chat View:
+
+  * Messages in bubbles (AI in orange, user in gray)
+  * Quick action buttons: *Save, Favorite, Export Chat*
+* Features Inside Chat:
+  ✅ Video sharing (coach sending workout videos)
+  ✅ Progress graphs & analytics inside chat (e.g., *weight trend*)
+  ✅ Motivational audio snippets (voice coach)
+  ✅ Workout setup via voice command (*“Set up morning run”*)
+
+---
+
+#### 5. Fitness Progress Integration
+
+* AI Updates Progress:
+
+  * Example: *76kg → 73kg in 2 weeks*
+  * Visuals: Human silhouette with measurement stats
+* In-chat insights:
+
+  * AI suggesting next steps
+  * Diet recommendations with images
+  * Workout summaries and results
+
+---
+
+#### 6. Advanced Features
+
+* Voice Command Support:
+
+  * Users can speak commands (with mic button)
+  * Examples: *“Start 10-min warm-up,” “Track calories today.”*
+* Custom AI Behavior:
+
+  * Suggests AI personas for coaching styles
+  * Ability to switch tone and expertise dynamically
+
+---
+
+#### 7. Monetization & Token System
+
+* Free Plan Limit:
+
+  * Limited chat tokens per month
+  * Message: *“Oops, out of Tokens!”*
+* Premium Upgrade:
+
+  * Unlimited AI chats for €8.49/month
+  * CTA: Go Pro for Unlimited →
+
+---
+
+#### 8. Settings & Management
+
+* Chat Settings:
+
+  * Rename chat
+  * Save or export conversation
+  * Delete conversation (confirmation modal)

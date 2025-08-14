@@ -10,7 +10,7 @@ interface MobileLayoutProps {
 export const MobileLayout = ({ children, showBottomNav = true }: MobileLayoutProps) => {
   return (
     <div className="min-h-screen bg-black">
-      <main className={showBottomNav ? 'pb-24' : ''}>
+      <main className={showBottomNav ? 'pb-0' : ''}>
         {children}
       </main>
       {showBottomNav && <BottomNavigation />}

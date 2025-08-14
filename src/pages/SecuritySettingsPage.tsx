@@ -1,12 +1,9 @@
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Shield, Lock, Fingerprint, Eye, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Shield, Lock, Fingerprint, Eye, ChevronRight } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
+import { ProfileLayout } from '../components/layout/ProfileLayout';
 
 const SecuritySettingsPage = () => {
-  const navigate = useNavigate();
   const [securitySettings, setSecuritySettings] = useState({
     biometricAuth: true,
     twoFactorAuth: false,
@@ -60,23 +57,7 @@ const SecuritySettingsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-dark-primary border-b border-dark-tertiary">
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate(-1)}
-            className="text-white hover:bg-dark-secondary"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-semibold text-white">Security</h1>
-          <div className="w-10" />
-        </div>
-      </div>
-
+    <ProfileLayout title="Security">
       {/* Security Status */}
       <div className="p-4">
         <div className="bg-green-500/20 border border-green-500/30 rounded-xl p-4 mb-6">
@@ -136,7 +117,7 @@ const SecuritySettingsPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </ProfileLayout>
   );
 };
 

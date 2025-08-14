@@ -1,13 +1,11 @@
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Camera, Edit3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Edit3 } from 'lucide-react';
+import { useState } from 'react';
+import { ProfileLayout } from '../components/layout/ProfileLayout';
 
 const PersonalInfoPage = () => {
-  const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
     firstName: 'John',
@@ -26,45 +24,20 @@ const PersonalInfoPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-dark-primary border-b border-dark-tertiary">
-        <div className="flex items-center justify-between p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate(-1)}
-            className="text-white hover:bg-dark-secondary"
-          >
-            <ArrowLeft className="h-6 w-6" />
-          </Button>
-          <h1 className="text-xl font-semibold text-white">Personal Info</h1>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsEditing(!isEditing)}
-            className="text-FlexForge-orange hover:bg-dark-secondary"
-          >
-            <Edit3 className="h-5 w-5" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Profile Photo Section */}
-      <div className="p-6 border-b border-dark-tertiary">
-        <div className="flex flex-col items-center space-y-4">
-          <div className="relative">
-            <div className="w-24 h-24 bg-gradient-orange rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">JD</span>
-            </div>
-            {isEditing && (
-              <button className="absolute -bottom-2 -right-2 w-8 h-8 bg-FlexForge-orange rounded-full flex items-center justify-center">
-                <Camera className="h-4 w-4 text-white" />
-              </button>
-            )}
-          </div>
-          <p className="text-white/70 text-sm">Profile Photo</p>
-        </div>
+    <ProfileLayout
+      title="Personal Info"
+      showBackButton={true}
+    >
+      {/* Edit Button in Header */}
+      <div className="absolute top-4 right-4">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsEditing(!isEditing)}
+          className="text-FlexForge-orange hover:bg-dark-secondary"
+        >
+          <Edit3 className="h-5 w-5" />
+        </Button>
       </div>
 
       {/* Personal Information Form */}
@@ -162,8 +135,9 @@ const PersonalInfoPage = () => {
           </Button>
         </div>
       )}
-    </div>
+    </ProfileLayout>
   );
 };
+
 
 export default PersonalInfoPage;

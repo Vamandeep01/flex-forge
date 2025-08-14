@@ -1,4 +1,3 @@
-
 import { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
@@ -10,7 +9,7 @@ interface AuthGuardProps {
 export const AuthGuard = ({ children, requireAuth = true }: AuthGuardProps) => {
   const location = useLocation();
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  const hasOnboarded = localStorage.getItem('hasOnboarded') === 'true';
+  const hasAssessmentCompleted = localStorage.getItem('hasAssessmentCompleted') === 'true';
 
   // If authentication is required but user is not logged in
   if (requireAuth && !isLoggedIn) {
@@ -18,12 +17,16 @@ export const AuthGuard = ({ children, requireAuth = true }: AuthGuardProps) => {
   }
 
   // If user is logged in but hasn't completed onboarding
-  if (requireAuth && isLoggedIn && !hasOnboarded) {
-    return <Navigate to="/onboarding" replace />;
+  // Allow access to assessment and profile setup pages, redirect others
+  if (requireAuth && isLoggedIn && !hasAssessmentCompleted) {
+    const allowedOnboardingPaths = ['/assessment', '/profile-setup', '/profile-score'];
+    if (!allowedOnboardingPaths.includes(location.pathname)) {
+      return <Navigate to="/assessment" replace />;
+    }
   }
 
   // If authentication is not required but user is logged in, redirect to dashboard
-  if (!requireAuth && isLoggedIn && hasOnboarded) {
+  if (!requireAuth && isLoggedIn && hasAssessmentCompleted) {
     return <Navigate to="/dashboard" replace />;
   }
 
