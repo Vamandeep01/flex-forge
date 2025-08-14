@@ -750,3 +750,267 @@ This comprehensive guide provides the foundation for building a world-class fitn
 5. **Progressive Enhancement** - Ensure core functionality works everywhere
 
 Build something amazing! 💪🚀
+
+
+### Search Screen UI Overview
+
+1. Initial Search Screen
+   The first screen features a clean layout with a vibrant orange header occupying the top section (approximately 3/4 width), while the lower part uses a sleek black background. It includes a prominent search bar at the top for user queries.
+
+2. Category Tags
+   Just below the search bar, horizontally scrollable category chips are displayed (e.g., *Workouts*, *Meals*, *Community*), allowing quick filtering options.
+
+3. Search Suggestions
+   As the user types in the search bar, real-time suggestions appear in a dropdown list, making it easier to select relevant terms.
+
+4. No Results State
+   If no matches are found, a dedicated “No Results” screen is shown, featuring an illustrated graphic and a friendly message prompting the user to try another keyword.
+
+5. Search Results List
+   When results are available, they appear in a list format with the following elements:
+
+   * Icon representing the item type.
+   * Title/Label of the result.
+   * Colored badges (e.g., *Fitness*, *Workout*) for quick categorization.
+   * Match Percentage to indicate relevance.
+
+6. Filter Options
+   A bottom drawer modal is used for advanced filtering. It includes:
+
+   * Date Range Picker for narrowing results by date.
+   * Search Limit Slider to control the number of results.
+   * Category Selection with toggle buttons (e.g., *Workout*, *Meal*).
+   * AI Suggestions Toggle for including AI-driven recommendations.
+   * Apply Filter Button to update results.
+
+
+
+### Notifications & Reminders UI Overview
+
+1. Notifications List Screen
+
+   * Displays all user notifications categorized under Today and Past sections.
+   * Each notification includes:
+
+     * Title (e.g., *Drink More Water!*)
+     * Brief description
+     * Icons for quick identification
+     * Progress indicators for tasks (e.g., *Nutrition Update – 20% completed*).
+   * Unread notifications are highlighted for better visibility.
+
+2. Fitness Chatbot Notification
+
+   * A detailed view showing the number of chatbot messages (e.g., *187+ Fitness Chatbot Messages*).
+   * Includes an action button: “See Fitness Chatbot” for quick access.
+
+3. Score Update Notification
+
+   * Highlights improvement in Sandow Score (e.g., *+8.5 Sandow Score Increased*).
+   * Includes motivational text and an action button “See More”.
+
+4. Steps Tracking Reminder
+
+   * Displays the number of steps taken and remaining steps to meet the daily goal (e.g., *+1,121 Steps Taken*).
+   * Action button: “See Steps Taken” to review progress.
+
+5. Hydration Reminder
+
+   * Encourages water intake by showing the remaining goal (e.g., *+250ml Water Intake*).
+   * Includes a progress bar and button: “See Hydration”.
+
+6. Nutrition Update Reminder
+
+   * Shows nutrition intake progress (e.g., *+128kcal Nutrition Intake*).
+   * Displays macros like protein and carbs along with an action button: “See Nutrition”.
+
+7. Workout Completion Notification
+
+   * Indicates workout sessions completed and calories burned (e.g., *-502kcal Workout Completed*).
+   * Action button: “See Workout” for details.
+
+8. Jogging Schedule Reminder
+
+   * Displays upcoming or scheduled jogging activity with time and coach details (e.g., *Jogging at 05:00 AM with Coach Farnese*).
+   * Action button: “See Activities”.
+
+
+### Activity Tracker UI Overview
+
+1. No Activities Screen
+
+   * Displays an empty state with a motivating visual when the user has no logged activities.
+   * Includes a prominent “Add New Activity” button to start tracking.
+
+2. Add New Activity Screen
+
+   * A grid layout showcasing different activity options:
+
+     * Jogging, Walking, Hiking, Running, Cycling, Rowing, Lifting, Other
+   * Bottom action button: Continue →.
+
+3. Choose Route Screen
+
+   * Allows the user to select a route for the chosen activity.
+   * Features AI-powered suggestion for optimal routes.
+
+4. Route Selection & Preview
+
+   * Displays a map view for selecting and adjusting the jogging or running route.
+   * Users can edit the route, view distance, and confirm by tapping Start Jogging.
+
+5. Live Activity Tracking
+
+   * Real-time tracking interface showing:
+
+     * Elapsed time
+     * Calories burned
+     * Distance covered
+     * Steps count
+   * Includes pause and stop controls for activity tracking.
+
+6. Activity Completion Summary
+
+   * Post-activity screen with:
+
+     * Calories burned (visualized in a circular progress chart)
+     * Duration & Steps
+     * Next action options (e.g., *Post Jogging Stretches*).
+
+7. My Activities Dashboard
+
+   * Calendar view for quick navigation of activity history.
+   * Displays completed activities with color-coded indicators and stats.
+
+8. Activity Filter Modal
+
+   * Bottom sheet filter to refine activity history based on:
+
+     * Date range
+     * Activity type (Jogging, Weightlifting, etc.)
+     * AI suggestions toggle
+   * Action button: Apply Filter.
+
+9. Activity Stats Overview
+
+   * Summarized statistics of user activities with visual cards showing total hours spent per activity type.
+
+10. AI Activity Suggestions
+
+    * Personalized suggestions for new activities like Morning Boost, Midday Stretch.
+    * Includes session duration and quick-start options.
+
+11. Activity Detail View
+
+    * Detailed description of the activity, impact metrics, video guide, and benefits section.
+    * Includes performance score and AI suggestion button.
+
+12. Weightlifting Setup Screen
+
+    * Users can customize their weightlifting session by selecting:
+
+      * Target muscles
+      * Reps & sets
+      * Weight options
+      * Calories estimate
+    * Action button: Start Weightlifting.
+
+13. Live Weightlifting Session
+
+    * Timer-based interface with remaining sets and reps tracking.
+
+14. Weightlifting Completion Summary
+
+    * Displays calories burned, sets, and reps completed in a visually engaging layout.
+    * Option to add another activity or finish the session.
+
+
+### Workout & Training UI Overview
+
+1. Personalized Workout Screen
+
+   * Displays a welcome section with motivational imagery and text promoting personalized workouts.
+   * CTA button: “Browse Workouts” to explore available sessions.
+
+2. Workout Library (Home Screen)
+
+   * Categorized sections like:
+
+     * Featured workouts
+     * Strength Training
+     * Beginner Sessions
+     * My Workouts (personalized list).
+   * Includes workout cards with:
+
+     * Title, Duration, Calorie info
+     * Play icon for quick access.
+
+3. Workout Search Screen
+
+   * Provides search functionality for finding workouts by name or category.
+   * Displays results in a card layout with thumbnail, title, and quick-start option.
+
+4. Filter Workout Modal
+
+   * Bottom drawer filter with:
+
+     * Sort options (Most Popular, Newest)
+     * Difficulty levels (Beginner, Intermediate, Advanced)
+     * Body part filters (e.g., Lower Body, Upper Body)
+     * Calorie Burn range selector
+   * Action button: Apply Filter.
+
+5. Workout Detail Screen
+
+   * Shows workout information such as:
+
+     * Workout Name, Trainer, Duration, Calories, Equipment
+   * Start Workout button at the bottom.
+
+6. Exercise Sequence View
+
+   * Displays a list of exercises within the selected workout session.
+   * Each exercise shows duration and instructions.
+   * Button to Start the full workout.
+
+7. Exercise Player Screen
+
+   * Full-screen exercise execution mode with:
+
+     * Exercise name
+     * Current and next exercise details
+     * Timer and rep counter
+     * Pause/Resume controls.
+
+8. Workout Completion Summary
+
+   * Post-workout summary highlighting:
+
+     * Calories burned, Time spent, Sets completed
+   * CTA: Complete and option to review session.
+
+9. My Workouts Schedule
+
+   * Displays a calendar view with planned workouts.
+   * Includes details like scheduled date, time, and workout type.
+
+10. AI Suggestions Screen
+
+    * Personalized workout recommendations such as:
+
+      * Correct Your Form
+      * Do proper stretching
+    * Cards include difficulty, time, and benefit tags.
+
+11. Workout Guidance Detail Screen
+
+    * Provides detailed instructions on form correction, benefits, and tips.
+    * Includes step-by-step guidance with illustrations.
+    * CTA: Scan Reward Points and Apply AI Help.
+
+12. Form Analysis Screen
+
+    * Uses AI pose detection to analyze user posture during workout.
+    * Displays real-time feedback with highlighted body parts for correction.
+    * Shows status: Scanning → Completed.
+
+
