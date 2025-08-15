@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Activity, Calculator, Clock, Droplets, Heart, Target } from 'lucide-react';
 import { Card } from '../ui/card';
@@ -141,7 +142,8 @@ const MetricCard = ({
     icon: Icon,
     bgColor,
     chartType,
-    chartProps = {}
+    chartProps = {},
+    linkTo
 }) => {
     const renderChart = () => {
         switch (chartType) {
@@ -162,7 +164,7 @@ const MetricCard = ({
         }
     };
 
-    return (
+    const CardContent = () => (
         <Card className={`${bgColor} p-4 flex flex-col justify-between rounded-3xl gap-3 w-full max-w-[130px] h-[160px] flex-shrink-0`}>
             <div className="flex justify-between items-center">
                 <div className="text-white/90 text-sm font-medium">{title}</div>
@@ -174,6 +176,14 @@ const MetricCard = ({
             <div className="text-white text-xl font-bold">{value}</div>
         </Card>
     );
+
+    return linkTo ? (
+        <Link to={linkTo}>
+            <CardContent />
+        </Link>
+    ) : (
+        <CardContent />
+    );
 };
 
 const FitnessMetrics = () => {
@@ -184,6 +194,7 @@ const FitnessMetrics = () => {
             icon: Activity,
             bgColor: "bg-orange-500",
             chartType: "bar",
+            linkTo: "/sandow-score",
             chartProps: {
                 heights: [12, 20, 32, 24, 16, 28, 20],
                 colors: [
@@ -197,7 +208,8 @@ const FitnessMetrics = () => {
             value: "78 BPM",
             icon: Heart,
             bgColor: "bg-red-500",
-            chartType: "heartbeat"
+            chartType: "heartbeat",
+            linkTo: "/heart-rate"
         },
         {
             title: "Hydration",
@@ -205,6 +217,7 @@ const FitnessMetrics = () => {
             icon: Droplets,
             bgColor: "bg-blue-500",
             chartType: "wave",
+            linkTo: "/hydration",
             chartProps: { animated: true }
         },
         {
@@ -213,6 +226,7 @@ const FitnessMetrics = () => {
             icon: Calculator,
             bgColor: "bg-gray-700 border border-gray-600",
             chartType: "dots",
+            linkTo: "/calories",
             chartProps: {
                 dotSizes: [10, 10, 12, 10, 8],
                 colors: [
@@ -227,6 +241,7 @@ const FitnessMetrics = () => {
             icon: Target,
             bgColor: "bg-purple-500",
             chartType: "arc",
+            linkTo: "/steps",
             chartProps: { progress: 75 }
         },
         {
@@ -235,6 +250,7 @@ const FitnessMetrics = () => {
             icon: Clock,
             bgColor: "bg-green-500",
             chartType: "flow",
+            linkTo: "/steps-stats",
             chartProps: { animated: true }
         },
     ];

@@ -1,198 +1,87 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Index from './pages/Index';
+import SplashPage from './pages/SplashPage';
+import OnboardingPage from './pages/OnboardingPage';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
+import PasswordSentPage from './pages/PasswordSentPage';
+import AssessmentPage from './pages/AssessmentPage';
+import DashboardPage from './pages/DashboardPage';
+import SandowScorePage from './pages/SandowScorePage';
+import HeartRatePage from './pages/HeartRatePage';
+import HeartRateStatsPage from './pages/HeartRateStatsPage';
+import BMIIndexPage from './pages/BMIIndexPage';
+import HydrationPage from './pages/HydrationPage';
+import CaloriesPage from './pages/CaloriesPage';
+import CalorieStatsPage from './pages/CalorieStatsPage';
+import StepsPage from './pages/StepsPage';
+import StepsStatsPage from './pages/StepsStatsPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import NutritionPage from './pages/NutritionPage';
+import SearchPage from './pages/SearchPage';
+import NotificationsPage from './pages/NotificationsPage';
+import ProfileSettingsPage from './pages/ProfileSettingsPage';
+import ProfileSetupPage from './pages/ProfileSetupPage';
+import ProfileScorePage from './pages/ProfileScorePage';
+import PersonalInfoPage from './pages/PersonalInfoPage';
+import AccountSettingsPage from './pages/AccountSettingsPage';
+import SecuritySettingsPage from './pages/SecuritySettingsPage';
+import NotificationSettingsPage from './pages/NotificationSettingsPage';
+import HelpCenterPage from './pages/HelpCenterPage';
+import AboutUsPage from './pages/AboutUsPage';
+import AddWorkoutPage from './pages/AddWorkoutPage';
+import NotFound from './pages/NotFound';
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthGuard } from "@/components/guardComp/AuthGuard";
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Index />} />
+        <Route path="/splash" element={<SplashPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route path="/password-sent" element={<PasswordSentPage />} />
+        <Route path="/assessment" element={<AssessmentPage />} />
 
-// Import all page components
-import SplashPage from "./pages/SplashPage";
-import OnboardingPage from "./pages/OnboardingPage";
-import ProfileSetupPage from "./pages/ProfileSetupPage";
-import ProfileScorePage from "./pages/ProfileScorePage";
-import SignInPage from "./pages/SignInPage";
-import SignUpPage from "./pages/SignUpPage";
-import ResetPasswordPage from "./pages/ResetPasswordPage";
-import PasswordSentPage from "./pages/PasswordSentPage";
-import AssessmentPage from "./pages/AssessmentPage";
-import DashboardPage from "./pages/DashboardPage";
-import NotFound from "./pages/NotFound";
-
-// Import Profile Settings pages
-import ProfileSettingsPage from "./pages/ProfileSettingsPage";
-import AccountSettingsPage from "./pages/AccountSettingsPage";
-import PersonalInfoPage from "./pages/PersonalInfoPage";
-import NotificationSettingsPage from "./pages/NotificationSettingsPage";
-import SecuritySettingsPage from "./pages/SecuritySettingsPage";
-import AboutUsPage from "./pages/AboutUsPage";
-import HelpCenterPage from "./pages/HelpCenterPage";
-
-// Import new navigation pages
-import AnalyticsPage from "./pages/AnalyticsPage";
-import AddWorkoutPage from "./pages/AddWorkoutPage";
-import NutritionPage from "./pages/NutritionPage";
-import SearchPage from "./pages/SearchPage";
-import { MobileLayout } from "./components/layout/MobileLayout";
-import { NotificationProvider } from "./contexts/NotificationContext";
-import NotificationsPage from "./pages/NotificationsPage";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <NotificationProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            {/* Default route redirects to splash */}
-            <Route path="/" element={<Navigate to="/splash" replace />} />
-
-            {/* Public routes (no auth required) */}
-            <Route path="/splash" element={
-              <AuthGuard requireAuth={false}>
-                <SplashPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/onboarding" element={<OnboardingPage />} />
-
-            <Route path="/signin" element={
-              <AuthGuard requireAuth={false}>
-                <SignInPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/signup" element={
-              <AuthGuard requireAuth={false}>
-                <SignUpPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/reset-password" element={
-              <AuthGuard requireAuth={false}>
-                <ResetPasswordPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/password-sent" element={
-              <AuthGuard requireAuth={false}>
-                <PasswordSentPage />
-              </AuthGuard>
-            } />
-
-            {/* Protected routes (auth required) */}
-            <Route path="/profile-setup" element={
-              <AuthGuard>
-                <ProfileSetupPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/profile-score" element={
-              <AuthGuard>
-                <ProfileScorePage />
-              </AuthGuard>
-            } />
-
-            <Route path="/assessment" element={
-              <AuthGuard>
-                <AssessmentPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/dashboard" element={
-              <AuthGuard>
-                <MobileLayout showBottomNav={true}>
-                  <DashboardPage />
-                </MobileLayout>
-              </AuthGuard>
-            } />
-
-            <Route path="/search" element={
-              <AuthGuard>
-                <SearchPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/notifications" element={
-              <AuthGuard>
-                <NotificationsPage />
-              </AuthGuard>
-            } />
-
-            {/* Navigation pages */}
-            <Route path="/analytics" element={
-              <AuthGuard>
-                <MobileLayout showBottomNav={true}>
-                  <AnalyticsPage />
-                </MobileLayout>
-              </AuthGuard>
-            } />
-
-            <Route path="/add-workout" element={
-              <AuthGuard>
-                <AddWorkoutPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/nutrition" element={
-              <AuthGuard>
-                <NutritionPage />
-              </AuthGuard>
-            } />
-
-            {/* Profile Settings Routes */}
-            <Route path="/profile/settings" element={
-              <AuthGuard>
-                <ProfileSettingsPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/profile/account-settings" element={
-              <AuthGuard>
-                <AccountSettingsPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/profile/personal-info" element={
-              <AuthGuard>
-                <PersonalInfoPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/profile/notification-settings" element={
-              <AuthGuard>
-                <NotificationSettingsPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/profile/security-settings" element={
-              <AuthGuard>
-                <SecuritySettingsPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/profile/about-us" element={
-              <AuthGuard>
-                <AboutUsPage />
-              </AuthGuard>
-            } />
-
-            <Route path="/profile/help-center" element={
-              <AuthGuard>
-                <HelpCenterPage />
-              </AuthGuard>
-            } />
-
-            {/* Catch-all route for 404 */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </NotificationProvider>
-  </QueryClientProvider>
-);
+        {/* Protected Routes */}
+        <Route path="/dashboard" element={<DashboardPage />} />
+        
+        {/* Fitness Metrics Detail Pages */}
+        <Route path="/sandow-score" element={<SandowScorePage />} />
+        <Route path="/heart-rate" element={<HeartRatePage />} />
+        <Route path="/heart-rate-stats" element={<HeartRateStatsPage />} />
+        <Route path="/bmi-index" element={<BMIIndexPage />} />
+        <Route path="/hydration" element={<HydrationPage />} />
+        <Route path="/calories" element={<CaloriesPage />} />
+        <Route path="/calorie-stats" element={<CalorieStatsPage />} />
+        <Route path="/steps" element={<StepsPage />} />
+        <Route path="/steps-stats" element={<StepsStatsPage />} />
+        
+        {/* Other Pages */}
+        <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/nutrition" element={<NutritionPage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/notifications" element={<NotificationsPage />} />
+        <Route path="/profile/settings" element={<ProfileSettingsPage />} />
+        <Route path="/profile/setup" element={<ProfileSetupPage />} />
+        <Route path="/profile/score" element={<ProfileScorePage />} />
+        <Route path="/profile/personal-info" element={<PersonalInfoPage />} />
+        <Route path="/profile/account-settings" element={<AccountSettingsPage />} />
+        <Route path="/profile/security-settings" element={<SecuritySettingsPage />} />
+        <Route path="/profile/notification-settings" element={<NotificationSettingsPage />} />
+        <Route path="/profile/help-center" element={<HelpCenterPage />} />
+        <Route path="/profile/about-us" element={<AboutUsPage />} />
+        <Route path="/add-workout" element={<AddWorkoutPage />} />
+        
+        {/* Catch all */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default App;
