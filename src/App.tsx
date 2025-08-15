@@ -31,6 +31,14 @@ import NotificationSettingsPage from './pages/NotificationSettingsPage';
 import HelpCenterPage from './pages/HelpCenterPage';
 import AboutUsPage from './pages/AboutUsPage';
 import AddWorkoutPage from './pages/AddWorkoutPage';
+import WorkoutPage from './pages/WorkoutPage';
+import WorkoutLibraryPage from './pages/WorkoutLibraryPage';
+import WorkoutDetailPage from './pages/WorkoutDetailPage';
+import ExercisePlayerPage from './pages/ExercisePlayerPage';
+import WorkoutCompletionPage from './pages/WorkoutCompletionPage';
+import MyWorkoutsPage from './pages/MyWorkoutsPage';
+import AIWorkoutSuggestionsPage from './pages/AIWorkoutSuggestionsPage';
+import FormAnalysisPage from './pages/FormAnalysisPage';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -60,6 +68,16 @@ function App() {
         <Route path="/calorie-stats" element={<CalorieStatsPage />} />
         <Route path="/steps" element={<StepsPage />} />
         <Route path="/steps-stats" element={<StepsStatsPage />} />
+        
+        {/* Workout & Training Pages */}
+        <Route path="/workout" element={<WorkoutPage />} />
+        <Route path="/workout-library" element={<WorkoutLibraryPage />} />
+        <Route path="/workout-detail/:id" element={<WorkoutDetailPage />} />
+        <Route path="/exercise-player/:id" element={<ExercisePlayerPage />} />
+        <Route path="/workout-completion" element={<WorkoutCompletionPage />} />
+        <Route path="/my-workouts" element={<MyWorkoutsPage />} />
+        <Route path="/ai-workout-suggestions" element={<AIWorkoutSuggestionsPage />} />
+        <Route path="/form-analysis" element={<FormAnalysisPage />} />
         
         {/* Other Pages */}
         <Route path="/analytics" element={<AnalyticsPage />} />
