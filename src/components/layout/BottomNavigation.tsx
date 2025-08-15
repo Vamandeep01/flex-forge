@@ -15,7 +15,7 @@ export const BottomNavigation = () => {
   const navItems = [
     { icon: Target, path: '/dashboard', label: 'Dashboard' },
     { icon: BarChart3, path: '/analytics', label: 'Analytics' },
-    { icon: Plus, path: '/add-workout', label: 'Add', special: true },
+    { icon: Plus, path: '/workout', label: 'Add', special: true },
     { icon: Utensils, path: '/nutrition', label: 'Nutrition' },
     { icon: User, path: '/profile/settings', label: 'Profile' }
   ];
@@ -35,10 +35,10 @@ export const BottomNavigation = () => {
             key={index}
             onClick={() => navigate(item.path)}
             className={`p-3 rounded-2xl transition-colors ${item.special
-                ? 'bg-FlexForge-orange text-white shadow-lg'
-                : isActive(item.path)
-                  ? 'bg-FlexForge-orange/20 text-FlexForge-orange'
-                  : 'text-white/60 hover:text-white'
+              ? 'bg-FlexForge-orange text-white shadow-lg'
+              : isActive(item.path)
+                ? 'bg-FlexForge-orange/20 text-FlexForge-orange'
+                : 'text-white/60 hover:text-white'
               }`}
             aria-label={item.label}
           >

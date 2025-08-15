@@ -22,7 +22,7 @@ interface Notification {
 
 const NotificationsPage = () => {
   const navigate = useNavigate();
-  
+
   const [notifications] = useState<Notification[]>([
     {
       id: '1',
@@ -118,11 +118,11 @@ const NotificationsPage = () => {
     }
   ]);
 
-  const todayNotifications = notifications.filter(n => 
+  const todayNotifications = notifications.filter(n =>
     n.time.includes('hours ago') || n.time.includes('minutes ago')
   );
-  
-  const pastNotifications = notifications.filter(n => 
+
+  const pastNotifications = notifications.filter(n =>
     n.time.includes('day ago') || n.time.includes('days ago') || n.time.includes('week')
   );
 
@@ -130,20 +130,20 @@ const NotificationsPage = () => {
 
   const NotificationCard = ({ notification }: { notification: Notification }) => {
     const Icon = notification.icon;
-    
+
     return (
       <div className={`${notification.bgColor} rounded-3xl p-6 relative overflow-hidden`}>
         {/* Background decoration for some cards */}
         {notification.type === 'steps' && (
           <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-            <img 
-              src="/lovable-uploads/a0f40d5c-8e16-4eb3-b19e-639bea78ac2a.png" 
-              alt="" 
+            <img
+              src="/lovable-uploads/a0f40d5c-8e16-4eb3-b19e-639bea78ac2a.png"
+              alt=""
               className="w-full h-full object-cover rounded-full"
             />
           </div>
         )}
-        
+
         <div className="flex flex-col h-full justify-between min-h-[200px]">
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -152,7 +152,7 @@ const NotificationsPage = () => {
                 <div className="w-2 h-2 bg-FlexForge-orange rounded-full"></div>
               )}
             </div>
-            
+
             <h2 className={`text-4xl font-bold ${notification.textColor} mb-1`}>
               {notification.title}
             </h2>
@@ -162,11 +162,11 @@ const NotificationsPage = () => {
             <p className={`text-sm ${notification.textColor} opacity-80 leading-relaxed`}>
               {notification.value}
             </p>
-            
+
             {notification.progress && (
               <div className="mt-4">
                 <div className={`w-full bg-black/20 rounded-full h-1.5`}>
-                  <div 
+                  <div
                     className="bg-white h-1.5 rounded-full transition-all duration-300"
                     style={{ width: `${notification.progress}%` }}
                   ></div>
@@ -174,15 +174,14 @@ const NotificationsPage = () => {
               </div>
             )}
           </div>
-          
+
           <Button
             variant="secondary"
             size="sm"
-            className={`mt-4 self-start ${
-              notification.type === 'chatbot' || notification.type === 'score'
+            className={`mt-4 self-start ${notification.type === 'chatbot' || notification.type === 'score'
                 ? 'bg-white/10 text-white border-white/20 hover:bg-white/20'
                 : 'bg-black/20 text-white border-transparent hover:bg-black/30'
-            }`}
+              }`}
             onClick={() => {
               // Handle navigation based on notification type
               switch (notification.type) {
@@ -202,7 +201,7 @@ const NotificationsPage = () => {
                   navigate('/nutrition');
                   break;
                 case 'workout':
-                  navigate('/add-workout');
+                  navigate('/workout');
                   break;
                 case 'schedule':
                   navigate('/dashboard');
@@ -253,7 +252,7 @@ const NotificationsPage = () => {
                   <span className="text-white/60 text-sm">{todayNotifications.length}</span>
                 </div>
               </div>
-              
+
               <div className="grid gap-4">
                 {todayNotifications.map((notification) => (
                   <NotificationCard key={notification.id} notification={notification} />
@@ -271,7 +270,7 @@ const NotificationsPage = () => {
                   <span className="text-white/60 text-sm">{pastNotifications.length}</span>
                 </div>
               </div>
-              
+
               <div className="grid gap-4">
                 {pastNotifications.map((notification) => (
                   <NotificationCard key={notification.id} notification={notification} />

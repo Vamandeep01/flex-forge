@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AboutUsPage from './pages/AboutUsPage';
 import AccountSettingsPage from './pages/AccountSettingsPage';
-import AddWorkoutPage from './pages/AddWorkoutPage';
+import ActivityTrackerPage from './pages/ActivityTrackerPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import AssessmentPage from './pages/AssessmentPage';
 import BMIIndexPage from './pages/BMIIndexPage';
@@ -17,6 +17,7 @@ import HydrationPage from './pages/HydrationPage';
 import NotFound from './pages/NotFound';
 import NotificationSettingsPage from './pages/NotificationSettingsPage';
 import NotificationsPage from './pages/NotificationsPage';
+import NutritionPage from "./pages/NutritionPage";
 import OnboardingPage from './pages/OnboardingPage';
 import PasswordSentPage from './pages/PasswordSentPage';
 import PersonalInfoPage from './pages/PersonalInfoPage';
@@ -32,17 +33,15 @@ import SignUpPage from './pages/SignUpPage';
 import SplashPage from './pages/SplashPage';
 import StepsPage from './pages/StepsPage';
 import StepsStatsPage from './pages/StepsStatsPage';
-import ActivityTrackerPage from './pages/ActivityTrackerPage';
-import NutritionPage from "./pages/NutritionPage";
 
 // Coaching Pages
-import CoachOnboardingPage from "./pages/CoachOnboardingPage";
-import CoachSelectionPage from "./pages/CoachSelectionPage";
-import CoachDetailPage from "./pages/CoachDetailPage";
 import CoachBookingPage from "./pages/CoachBookingPage";
-import CoachPaymentPage from "./pages/CoachPaymentPage";
+import CoachDetailPage from "./pages/CoachDetailPage";
 import CoachMessagingPage from "./pages/CoachMessagingPage";
+import CoachOnboardingPage from "./pages/CoachOnboardingPage";
+import CoachPaymentPage from "./pages/CoachPaymentPage";
 import CoachRatingPage from "./pages/CoachRatingPage";
+import CoachSelectionPage from "./pages/CoachSelectionPage";
 
 // Import error screens
 import { ErrorBoundary } from './components/error/ErrorBoundary';
@@ -55,6 +54,11 @@ import { MobileLayout } from './components/layout/MobileLayout';
 import { Toaster } from './components/ui/toaster';
 import { TooltipProvider } from './components/ui/tooltip';
 import { NotificationProvider } from './contexts/NotificationContext';
+import WorkoutPage from "./pages/WorkoutPage";
+import WorkoutLibraryPage from "./pages/WorkoutLibraryPage";
+import WorkoutDetailPage from "./pages/WorkoutDetailPage";
+import MyWorkoutsPage from "./pages/MyWorkoutsPage";
+import WorkoutCompletionPage from "./pages/WorkoutCompletionPage";
 
 
 const queryClient = new QueryClient({
@@ -228,53 +232,77 @@ function App() {
                   } />
 
 
-                  <Route path="/add-workout" element={
+                  <Route path="/workout" element={
                     <AuthGuard>
-                      <AddWorkoutPage />
+                      <WorkoutPage />
                     </AuthGuard>
                   } />
-                   <Route path="/nutrition" element={
-                     <AuthGuard>
-                       <NutritionPage />
-                     </AuthGuard>
-                   } />
 
-                   {/* Coaching Routes */}
-                   <Route path="/coach-onboarding" element={
-                     <AuthGuard>
-                       <CoachOnboardingPage />
-                     </AuthGuard>
-                   } />
-                   <Route path="/coach-selection" element={
-                     <AuthGuard>
-                       <CoachSelectionPage />
-                     </AuthGuard>
-                   } />
-                   <Route path="/coach-detail/:id" element={
-                     <AuthGuard>
-                       <CoachDetailPage />
-                     </AuthGuard>
-                   } />
-                   <Route path="/coach-booking/:id" element={
-                     <AuthGuard>
-                       <CoachBookingPage />
-                     </AuthGuard>
-                   } />
-                   <Route path="/coach-payment/:id" element={
-                     <AuthGuard>
-                       <CoachPaymentPage />
-                     </AuthGuard>
-                   } />
-                   <Route path="/coach-messaging/:id" element={
-                     <AuthGuard>
-                       <CoachMessagingPage />
-                     </AuthGuard>
-                   } />
-                   <Route path="/coach-rating/:id" element={
-                     <AuthGuard>
-                       <CoachRatingPage />
-                     </AuthGuard>
-                   } />
+                  <Route path="/workout-library" element={
+                    <AuthGuard>
+                      <WorkoutLibraryPage />
+                    </AuthGuard>
+                  } />
+
+                  <Route path="/workout-detail/:id" element={
+                    <AuthGuard>
+                      <WorkoutDetailPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/my-workouts" element={
+                    <AuthGuard>
+                      <MyWorkoutsPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/workout-completion" element={
+                    <AuthGuard>
+                      <WorkoutCompletionPage />
+                    </AuthGuard>
+                  } />
+
+
+                  <Route path="/nutrition" element={
+                    <AuthGuard>
+                      <NutritionPage />
+                    </AuthGuard>
+                  } />
+
+                  {/* Coaching Routes */}
+                  <Route path="/coach-onboarding" element={
+                    <AuthGuard>
+                      <CoachOnboardingPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/coach-selection" element={
+                    <AuthGuard>
+                      <CoachSelectionPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/coach-detail/:id" element={
+                    <AuthGuard>
+                      <CoachDetailPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/coach-booking/:id" element={
+                    <AuthGuard>
+                      <CoachBookingPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/coach-payment/:id" element={
+                    <AuthGuard>
+                      <CoachPaymentPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/coach-messaging/:id" element={
+                    <AuthGuard>
+                      <CoachMessagingPage />
+                    </AuthGuard>
+                  } />
+                  <Route path="/coach-rating/:id" element={
+                    <AuthGuard>
+                      <CoachRatingPage />
+                    </AuthGuard>
+                  } />
 
                   {/* Catch all */}
                   <Route path="/profile/setup" element={

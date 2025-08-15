@@ -1,6 +1,30 @@
 
 import { MobileLayout } from "@/components/layout/MobileLayout";
 
+export type NutritionScreen =
+  | 'onboarding'
+  | 'dashboard'
+  | 'analytics'
+  | 'my-meals'
+  | 'add-meal'
+  | 'calorie-goal'
+  | 'food-analysis'
+  | 'food-detail'
+  | 'recipe-detail'
+  | 'meal-added';
+
+export interface NutritionData {
+  dailyCalorieGoal: number;
+  currentCalories: number;
+  macros: {
+    protein: number;
+    carbs: number;
+    fat: number;
+  };
+  meals: any[];
+  selectedFood?: any;
+  selectedMeal?: any;
+}
 export default function NutritionPage() {
   return (
     <MobileLayout>
