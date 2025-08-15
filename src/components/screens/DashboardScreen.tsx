@@ -2,39 +2,34 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   ArrowRight,
-  BarChart3,
   Bell,
   Calendar,
   Clock,
   Flame,
   MoreVertical,
   Play,
-  Plus,
-  Target,
-  User,
-  Users,
-  Utensils
+  Users
 } from "lucide-react";
 import React from 'react';
+import { Link } from "react-router-dom";
 import ActivitiesWidget from "../dashboardComp/ActivitiesWidget";
 import DietNutrition from "../dashboardComp/DietNutrition";
 import FitnessMetrics from "../dashboardComp/FitnessMetrics";
-import { BottomNavigation } from "../layout/BottomNavigation";
 
 
 // Date Header
 const DateHeader: React.FC = () => {
   return (
-    <div className="px-4 py-2">
+    <div className="px-4 py-1">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2 text-white/70 text-sm">
           <Calendar className="w-4 h-4" />
-          <span>JUN 25, 2025</span>
+          <span>{new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
         </div>
-        <div className="w-8 h-8 bg-white/20 rounded-md flex items-center justify-center relative">
+        <Link to={'/notifications'} className="w-8 h-8 bg-white/20 rounded-md flex items-center justify-center relative">
           <Bell className="w-4 h-4 text-white" />
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-md"></div>
-        </div>
+        </Link>
       </div>
     </div>
   );
@@ -60,7 +55,9 @@ const UserProfileHeader: React.FC = () => {
             </div>
           </div>
         </div>
-        <ArrowRight className="w-5 h-5 text-white/60" />
+        <Link to={'/profile/settings'}>
+          <ArrowRight className="w-5 h-5 text-white/60" />
+        </Link>
       </div>
     </div>
   );

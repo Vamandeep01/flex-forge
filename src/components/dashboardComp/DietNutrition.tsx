@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Flame, Clock, Play } from 'lucide-react';
 import { Button } from '../ui/button';
+import { Link } from 'react-router-dom';
 
 interface Meal {
     name: string;
@@ -43,7 +44,7 @@ const DietNutrition: React.FC = () => {
         <div className="py-2">
             <div className="flex items-center justify-between mb-4 px-4">
                 <h2 className="text-white text-lg font-semibold">Diet & Nutrition</h2>
-                <span className="text-FlexForge-orange text-sm font-medium">See All</span>
+                <Link to={'/nutrition'} className="text-FlexForge-orange text-sm font-medium">See All</Link>
             </div>
 
             <div className="overflow-x-auto scrollbar-hide">

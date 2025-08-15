@@ -1,6 +1,7 @@
 import React from 'react';
 import { Activity, Calculator, Clock, Droplets, Heart, Target } from 'lucide-react';
 import { Card } from '../ui/card';
+import { Link } from 'react-router-dom';
 
 
 // Reusable Chart Components
@@ -242,7 +243,7 @@ const FitnessMetrics = () => {
         <div className="px-4 py-2">
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-white text-lg font-semibold">Fitness Metrics</h2>
-                <span className="text-orange-500 text-sm font-medium">See All</span>
+                <Link to={'/analytics'} className="text-orange-500 text-sm font-medium">See All</Link>
             </div>
 
             <div className="flex gap-3 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
