@@ -9,12 +9,8 @@ import SearchFilterScreen from "@/components/search/SearchFilterScreen";
 type SearchScreenType = 'loading' | 'input' | 'notFound' | 'results' | 'filter';
 
 export default function SearchScreen() {
-  const [currentScreen, setCurrentScreen] = useState<SearchScreenType>('loading');
+  const [currentScreen, setCurrentScreen] = useState<SearchScreenType>('input');
   const [searchQuery, setSearchQuery] = useState('');
-
-  const handleScreenChange = (screen: SearchScreenType) => {
-    setCurrentScreen(screen);
-  };
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -22,7 +18,10 @@ export default function SearchScreen() {
     
     // Simulate search delay
     setTimeout(() => {
-      if (query.toLowerCase().includes('fitness')) {
+      if (query.toLowerCase().includes('fitness') || 
+          query.toLowerCase().includes('workout') || 
+          query.toLowerCase().includes('meal') ||
+          query.toLowerCase().includes('coach')) {
         setCurrentScreen('results');
       } else {
         setCurrentScreen('notFound');
@@ -30,35 +29,42 @@ export default function SearchScreen() {
     }, 2000);
   };
 
+  const handleBack = () => {
+    if (currentScreen === 'results' || currentScreen === 'notFound') {
+      setCurrentScreen('input');
+    }
+  };
+
   const renderScreen = () => {
     switch (currentScreen) {
       case 'loading':
         return <SearchLoadingScreen />;
       case 'input':
-        return <SearchInputScreen onSearch={handleSearch} />;
+        return <SearchInputScreen onSearch={handleSearch} onBack={handleBack} />;
       case 'notFound':
-        return <SearchNotFoundScreen onBack={() => setCurrentScreen('input')} />;
+        return <SearchNotFoundScreen onBack={handleBack} searchQuery={searchQuery} />;
       case 'results':
-        return <SearchResultsScreen onFilter={() => setCurrentScreen('filter')} onBack={() => setCurrentScreen('input')} />;
+        return (
+          <SearchResultsScreen 
+            onFilter={() => setCurrentScreen('filter')} 
+            onBack={handleBack}
+            searchQuery={searchQuery}
+          />
+        );
       case 'filter':
-        return <SearchFilterScreen onApply={() => setCurrentScreen('results')} onBack={() => setCurrentScreen('results')} />;
+        return (
+          <SearchFilterScreen 
+            onApply={() => setCurrentScreen('results')} 
+            onBack={() => setCurrentScreen('results')} 
+          />
+        );
       default:
-        return <SearchLoadingScreen />;
+        return <SearchInputScreen onSearch={handleSearch} onBack={handleBack} />;
     }
   };
 
-  // Auto transition from loading to input after 3 seconds
-  useState(() => {
-    const timer = setTimeout(() => {
-      if (currentScreen === 'loading') {
-        setCurrentScreen('input');
-      }
-    }, 3000);
-    return () => clearTimeout(timer);
-  });
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-FlexForge-orange to-FlexForge-orange-dark">
+    <div className="min-h-screen">
       {renderScreen()}
     </div>
   );

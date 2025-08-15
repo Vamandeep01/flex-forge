@@ -1429,3 +1429,9 @@ Here’s the detailed breakdown of the Virtual Fitness AI Chatbot module from yo
   * Rename chat
   * Save or export conversation
   * Delete conversation (confirmation modal)
+
+   - calculateDeliveryFee()
+   - calculatePlatformFee()
+   - generateOrderId()
+   - truncateText()
+7
