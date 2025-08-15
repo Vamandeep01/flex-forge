@@ -34,154 +34,164 @@ import AddWorkoutPage from "./pages/AddWorkoutPage";
 import NutritionPage from "./pages/NutritionPage";
 import SearchPage from "./pages/SearchPage";
 import { MobileLayout } from "./components/layout/MobileLayout";
+import { NotificationProvider } from "./contexts/NotificationContext";
+import NotificationsPage from "./pages/NotificationsPage";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          {/* Default route redirects to splash */}
-          <Route path="/" element={<Navigate to="/splash" replace />} />
+    <NotificationProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            {/* Default route redirects to splash */}
+            <Route path="/" element={<Navigate to="/splash" replace />} />
 
-          {/* Public routes (no auth required) */}
-          <Route path="/splash" element={
-            <AuthGuard requireAuth={false}>
-              <SplashPage />
-            </AuthGuard>
-          } />
+            {/* Public routes (no auth required) */}
+            <Route path="/splash" element={
+              <AuthGuard requireAuth={false}>
+                <SplashPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/onboarding" element={<OnboardingPage />} />
+            <Route path="/onboarding" element={<OnboardingPage />} />
 
-          <Route path="/signin" element={
-            <AuthGuard requireAuth={false}>
-              <SignInPage />
-            </AuthGuard>
-          } />
+            <Route path="/signin" element={
+              <AuthGuard requireAuth={false}>
+                <SignInPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/signup" element={
-            <AuthGuard requireAuth={false}>
-              <SignUpPage />
-            </AuthGuard>
-          } />
+            <Route path="/signup" element={
+              <AuthGuard requireAuth={false}>
+                <SignUpPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/reset-password" element={
-            <AuthGuard requireAuth={false}>
-              <ResetPasswordPage />
-            </AuthGuard>
-          } />
+            <Route path="/reset-password" element={
+              <AuthGuard requireAuth={false}>
+                <ResetPasswordPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/password-sent" element={
-            <AuthGuard requireAuth={false}>
-              <PasswordSentPage />
-            </AuthGuard>
-          } />
+            <Route path="/password-sent" element={
+              <AuthGuard requireAuth={false}>
+                <PasswordSentPage />
+              </AuthGuard>
+            } />
 
-          {/* Protected routes (auth required) */}
-          <Route path="/profile-setup" element={
-            <AuthGuard>
-              <ProfileSetupPage />
-            </AuthGuard>
-          } />
+            {/* Protected routes (auth required) */}
+            <Route path="/profile-setup" element={
+              <AuthGuard>
+                <ProfileSetupPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/profile-score" element={
-            <AuthGuard>
-              <ProfileScorePage />
-            </AuthGuard>
-          } />
+            <Route path="/profile-score" element={
+              <AuthGuard>
+                <ProfileScorePage />
+              </AuthGuard>
+            } />
 
-          <Route path="/assessment" element={
-            <AuthGuard>
-              <AssessmentPage />
-            </AuthGuard>
-          } />
+            <Route path="/assessment" element={
+              <AuthGuard>
+                <AssessmentPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/dashboard" element={
-            <AuthGuard>
-              <MobileLayout showBottomNav={true}>
-                <DashboardPage />
-              </MobileLayout>
-            </AuthGuard>
-          } />
+            <Route path="/dashboard" element={
+              <AuthGuard>
+                <MobileLayout showBottomNav={true}>
+                  <DashboardPage />
+                </MobileLayout>
+              </AuthGuard>
+            } />
 
-          <Route path="/search" element={
-            <AuthGuard>
-              <SearchPage />
-            </AuthGuard>
-          } />
+            <Route path="/search" element={
+              <AuthGuard>
+                <SearchPage />
+              </AuthGuard>
+            } />
 
-          {/* Navigation pages */}
-          <Route path="/analytics" element={
-            <AuthGuard>
-              <MobileLayout showBottomNav={true}>
-                <AnalyticsPage />
-              </MobileLayout>
-            </AuthGuard>
-          } />
+            <Route path="/notifications" element={
+              <AuthGuard>
+                <NotificationsPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/add-workout" element={
-            <AuthGuard>
-              <AddWorkoutPage />
-            </AuthGuard>
-          } />
+            {/* Navigation pages */}
+            <Route path="/analytics" element={
+              <AuthGuard>
+                <MobileLayout showBottomNav={true}>
+                  <AnalyticsPage />
+                </MobileLayout>
+              </AuthGuard>
+            } />
 
-          <Route path="/nutrition" element={
-            <AuthGuard>
-              <NutritionPage />
-            </AuthGuard>
-          } />
+            <Route path="/add-workout" element={
+              <AuthGuard>
+                <AddWorkoutPage />
+              </AuthGuard>
+            } />
 
-          {/* Profile Settings Routes */}
-          <Route path="/profile/settings" element={
-            <AuthGuard>
-              <ProfileSettingsPage />
-            </AuthGuard>
-          } />
+            <Route path="/nutrition" element={
+              <AuthGuard>
+                <NutritionPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/profile/account-settings" element={
-            <AuthGuard>
-              <AccountSettingsPage />
-            </AuthGuard>
-          } />
+            {/* Profile Settings Routes */}
+            <Route path="/profile/settings" element={
+              <AuthGuard>
+                <ProfileSettingsPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/profile/personal-info" element={
-            <AuthGuard>
-              <PersonalInfoPage />
-            </AuthGuard>
-          } />
+            <Route path="/profile/account-settings" element={
+              <AuthGuard>
+                <AccountSettingsPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/profile/notification-settings" element={
-            <AuthGuard>
-              <NotificationSettingsPage />
-            </AuthGuard>
-          } />
+            <Route path="/profile/personal-info" element={
+              <AuthGuard>
+                <PersonalInfoPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/profile/security-settings" element={
-            <AuthGuard>
-              <SecuritySettingsPage />
-            </AuthGuard>
-          } />
+            <Route path="/profile/notification-settings" element={
+              <AuthGuard>
+                <NotificationSettingsPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/profile/about-us" element={
-            <AuthGuard>
-              <AboutUsPage />
-            </AuthGuard>
-          } />
+            <Route path="/profile/security-settings" element={
+              <AuthGuard>
+                <SecuritySettingsPage />
+              </AuthGuard>
+            } />
 
-          <Route path="/profile/help-center" element={
-            <AuthGuard>
-              <HelpCenterPage />
-            </AuthGuard>
-          } />
+            <Route path="/profile/about-us" element={
+              <AuthGuard>
+                <AboutUsPage />
+              </AuthGuard>
+            } />
 
-          {/* Catch-all route for 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+            <Route path="/profile/help-center" element={
+              <AuthGuard>
+                <HelpCenterPage />
+              </AuthGuard>
+            } />
+
+            {/* Catch-all route for 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </NotificationProvider>
   </QueryClientProvider>
 );
 
