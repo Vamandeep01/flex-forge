@@ -1,8 +1,6 @@
-
-import React from 'react';
 import { Activity, Calculator, Clock, Droplets, Heart, Target } from 'lucide-react';
-import { Card } from '../ui/card';
 import { Link } from 'react-router-dom';
+import { Card } from '../ui/card';
 
 
 // Reusable Chart Components
@@ -165,7 +163,7 @@ const MetricCard = ({
     };
 
     const CardContent = () => (
-        <Card className={`${bgColor} p-4 flex flex-col justify-between rounded-3xl gap-3 w-full max-w-[130px] h-[160px] flex-shrink-0`}>
+        <Card className={`${bgColor} p-3 flex flex-col justify-between rounded-3xl gap-3 w-[140px] h-[160px] flex-shrink-0`}>
             <div className="flex justify-between items-center">
                 <div className="text-white/90 text-sm font-medium">{title}</div>
                 <Icon className="w-5 h-5 text-white" />
@@ -178,7 +176,7 @@ const MetricCard = ({
     );
 
     return linkTo ? (
-        <Link to={linkTo}>
+        <Link to={linkTo} className='flex'>
             <CardContent />
         </Link>
     ) : (
@@ -262,13 +260,20 @@ const FitnessMetrics = () => {
                 <Link to={'/analytics'} className="text-orange-500 text-sm font-medium">See All</Link>
             </div>
 
-            <div className="flex gap-3 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                 {metricsData.map((metric, index) => (
                     <MetricCard key={index} {...metric} />
                 ))}
             </div>
 
             <style>{`
+                .scrollbar-hide {
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                }
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
                 @keyframes pulse {
                     0%, 100% { opacity: 0.4; }
                     50% { opacity: 1; }
