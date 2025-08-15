@@ -32,6 +32,8 @@ import SignUpPage from './pages/SignUpPage';
 import SplashPage from './pages/SplashPage';
 import StepsPage from './pages/StepsPage';
 import StepsStatsPage from './pages/StepsStatsPage';
+import ActivityTrackerPage from './pages/ActivityTrackerPage';
+import NutritionPage from "./pages/NutritionPage";
 
 // Import error screens
 import { ErrorBoundary } from './components/error/ErrorBoundary';
@@ -44,8 +46,6 @@ import { MobileLayout } from './components/layout/MobileLayout';
 import { Toaster } from './components/ui/toaster';
 import { TooltipProvider } from './components/ui/tooltip';
 import { NotificationProvider } from './contexts/NotificationContext';
-import ActivityTrackerPage from './pages/ActivityTrackerPage';
-import NutritionPage from "./pages/NutritionPage";
 
 
 const queryClient = new QueryClient({
