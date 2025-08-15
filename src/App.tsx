@@ -35,6 +35,15 @@ import StepsStatsPage from './pages/StepsStatsPage';
 import ActivityTrackerPage from './pages/ActivityTrackerPage';
 import NutritionPage from "./pages/NutritionPage";
 
+// Coaching Pages
+import CoachOnboardingPage from "./pages/CoachOnboardingPage";
+import CoachSelectionPage from "./pages/CoachSelectionPage";
+import CoachDetailPage from "./pages/CoachDetailPage";
+import CoachBookingPage from "./pages/CoachBookingPage";
+import CoachPaymentPage from "./pages/CoachPaymentPage";
+import CoachMessagingPage from "./pages/CoachMessagingPage";
+import CoachRatingPage from "./pages/CoachRatingPage";
+
 // Import error screens
 import { ErrorBoundary } from './components/error/ErrorBoundary';
 import { FeatureLockedScreen } from "./components/error/FeatureLockedScreen";
@@ -224,11 +233,48 @@ function App() {
                       <AddWorkoutPage />
                     </AuthGuard>
                   } />
-                  <Route path="/nutrition" element={
-                    <AuthGuard>
-                      <NutritionPage />
-                    </AuthGuard>
-                  } />
+                   <Route path="/nutrition" element={
+                     <AuthGuard>
+                       <NutritionPage />
+                     </AuthGuard>
+                   } />
+
+                   {/* Coaching Routes */}
+                   <Route path="/coach-onboarding" element={
+                     <AuthGuard>
+                       <CoachOnboardingPage />
+                     </AuthGuard>
+                   } />
+                   <Route path="/coach-selection" element={
+                     <AuthGuard>
+                       <CoachSelectionPage />
+                     </AuthGuard>
+                   } />
+                   <Route path="/coach-detail/:id" element={
+                     <AuthGuard>
+                       <CoachDetailPage />
+                     </AuthGuard>
+                   } />
+                   <Route path="/coach-booking/:id" element={
+                     <AuthGuard>
+                       <CoachBookingPage />
+                     </AuthGuard>
+                   } />
+                   <Route path="/coach-payment/:id" element={
+                     <AuthGuard>
+                       <CoachPaymentPage />
+                     </AuthGuard>
+                   } />
+                   <Route path="/coach-messaging/:id" element={
+                     <AuthGuard>
+                       <CoachMessagingPage />
+                     </AuthGuard>
+                   } />
+                   <Route path="/coach-rating/:id" element={
+                     <AuthGuard>
+                       <CoachRatingPage />
+                     </AuthGuard>
+                   } />
 
                   {/* Catch all */}
                   <Route path="/profile/setup" element={
