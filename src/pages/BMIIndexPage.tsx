@@ -45,7 +45,7 @@ export default function BMIIndexPage() {
                                 <div className="w-3 h-3 bg-blue-accent rounded"></div>
                                 <span className="text-white">Underweight</span>
                             </div>
-                            <span className="text-white/60">< 18.5</span>
+                            <span className="text-white/60">&lt; 18.5</span>
                         </div>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-2">
