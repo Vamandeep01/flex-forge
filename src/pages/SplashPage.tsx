@@ -1,55 +1,110 @@
-
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Plus } from "lucide-react"
-import { LoadingSpinner } from "@/components/ui/loading-spinner"
+import SplashOne from "@/components/splash/SplashOne"
+import SplashTwo from "@/components/splash/SplashTwo"
+import SplashThree from "@/components/splash/SplashThree"
+import SplashFour from "@/components/splash/SplashFour"
 
 export default function SplashPage() {
   const navigate = useNavigate()
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  const splashComponents = [
+    <SplashOne key="splash1" />,
+    <SplashTwo key="splash2" />,
+    <SplashThree key="splash3" />,
+    <SplashFour key="splash4" />
+  ]
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/onboarding')
-    }, 3000)
+    const slideTimer = setInterval(() => {
+      setIsTransitioning(true)
 
-    return () => clearTimeout(timer)
-  }, [navigate])
+      setTimeout(() => {
+        setCurrentSlide((prevSlide) => {
+          const nextSlide = prevSlide + 1
+
+          // If we've shown all slides, navigate to onboarding
+          if (nextSlide >= splashComponents.length) {
+            navigate('/onboarding')
+            return prevSlide
+          }
+
+          return nextSlide
+        })
+        setIsTransitioning(false)
+      }, 300) // Half of transition duration for smooth effect
+
+    }, 2500) // 2.5 seconds per slide
+
+    return () => {
+      clearInterval(slideTimer)
+    }
+  }, [navigate, splashComponents.length])
+
+  // Handle manual swipe/touch for better UX (optional)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0]
+    const startX = touch.clientX
+
+    const handleTouchEnd = (endEvent: TouchEvent) => {
+      const endX = endEvent.changedTouches[0].clientX
+      const diff = startX - endX
+
+      // Swipe left (next slide)
+      if (diff > 50 && currentSlide < splashComponents.length - 1) {
+        setIsTransitioning(true)
+        setTimeout(() => {
+          setCurrentSlide(prev => prev + 1)
+          setIsTransitioning(false)
+        }, 150)
+      }
+      // Swipe right (previous slide)
+      else if (diff < -50 && currentSlide > 0) {
+        setIsTransitioning(true)
+        setTimeout(() => {
+          setCurrentSlide(prev => prev - 1)
+          setIsTransitioning(false)
+        }, 150)
+      }
+
+      document.removeEventListener('touchend', handleTouchEnd)
+    }
+
+    document.addEventListener('touchend', handleTouchEnd)
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-orange flex flex-col items-center justify-center text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 border border-white/20 rounded-full" />
-        <div className="absolute bottom-40 right-8 w-24 h-24 border border-white/20 rounded-full" />
-        <div className="absolute top-1/3 right-20 w-16 h-16 border border-white/20 rounded-full" />
-      </div>
-
-      {/* Main Content */}
-      <div className="flex flex-col items-center space-y-8 animate-fade-in">
-        {/* Logo */}
-        <div className="relative">
-          <div className="w-24 h-24 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-2xl animate-bounce-in">
-            <Plus className="w-12 h-12 text-white" strokeWidth={3} />
+    <div
+      className="relative w-full h-screen overflow-hidden"
+      onTouchStart={handleTouchStart}
+    >
+      {/* Slides Container */}
+      <div
+        className={`flex w-full h-full transition-transform duration-600 ease-in-out ${isTransitioning ? 'opacity-90' : 'opacity-100'
+          }`}
+        style={{
+          transform: `translateX(-${currentSlide * 100}%)`,
+        }}
+      >
+        {splashComponents.map((component, index) => (
+          <div
+            key={index}
+            className="w-full h-full flex-shrink-0"
+          >
+            {component}
           </div>
-          <div className="absolute -inset-4 bg-white/10 rounded-3xl -z-10 animate-pulse" />
-        </div>
-
-        {/* Brand */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold tracking-tight">FlexForge</h1>
-          <p className="text-white/80 text-lg font-medium">
-            Your personal AI fitness coach
-          </p>
-        </div>
+        ))}
       </div>
 
-      {/* Loading Indicator */}
-      <div className="absolute bottom-16 flex flex-col items-center space-y-4">
-        <LoadingSpinner className="text-white" size="lg" />
-        <div className="w-32 h-1 bg-white/20 rounded-full overflow-hidden">
-          <div className="h-full bg-white rounded-full animate-slide-in-right" />
-        </div>
-      </div>
+      {/* Skip Button (Optional) */}
+      <button
+        onClick={() => navigate('/onboarding')}
+        className="absolute top-4 right-4 z-30 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
+      >
+        Skip
+      </button>
     </div>
   )
 }

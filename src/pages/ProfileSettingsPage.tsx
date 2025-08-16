@@ -99,7 +99,7 @@ const ProfileSettingsPage = () => {
           className="w-full border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
           onClick={() => {
             // Handle sign out
-            localStorage.removeItem('profileCompleted');
+            localStorage.clear();
             navigate('/signin');
           }}
         >
