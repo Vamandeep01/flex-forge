@@ -4,7 +4,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, CreditCard, Smartphone, Wallet, Check } from "lucide-react";
 import { useState } from "react";
-const [isBooking, setIsBooking] = useState(false);
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function CoachPaymentScreen() {
