@@ -55,7 +55,7 @@ const AboutUsPage = () => {
         <h3 className="text-lg font-semibold text-white mb-4">What We Offer</h3>
         <div className="space-y-4">
           {features.map((feature, index) => (
-            <div key={index} className="flex items-start space-x-3">
+            <div key={index + `-${feature.title}`} className="flex items-start space-x-3">
               <div className="w-10 h-10 bg-FlexForge-orange/20 rounded-lg flex items-center justify-center flex-shrink-0">
                 <feature.icon className="h-5 w-5 text-FlexForge-orange" />
               </div>
