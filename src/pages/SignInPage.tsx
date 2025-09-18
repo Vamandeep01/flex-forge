@@ -22,9 +22,12 @@ export default function SignInPage() {
 
     if (!formData.email) {
       newErrors.email = "Email is required"
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
+      // stricter validation: Email regex is very loose (\S+@\S+\.\S+), so something like a@b.c passes.
+      // Change the regex for stricter validation
       newErrors.email = "Please enter a valid email address"
     }
+
 
     if (!formData.password) {
       newErrors.password = "Password is required"
@@ -73,14 +76,17 @@ export default function SignInPage() {
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <label className="text-white text-sm font-medium">Email Address</label>
+              <label htmlFor="email" className="text-white text-sm font-medium">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/60" />
                 <Input
+                  id="email"
                   type="email"
-                  placeholder="elementary221b@gmail.com"
+                  placeholder="example@email.com"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
+                  // Expected behavior: pressing Enter in a field should also submit.
+                  onKeyDown={(e) => e.key === "Enter" && handleSignIn()}
                   className={`pl-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.email ? 'border-red-500' : 'border-dark-tertiary'
                     }`}
                 />
@@ -89,14 +95,17 @@ export default function SignInPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-white text-sm font-medium">Password</label>
+              <label htmlFor="password" className="text-white text-sm font-medium">Password</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/60" />
                 <Input
+                  id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="************"
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
+                  // Expected behavior: pressing Enter in a field should also submit.
+                  onKeyDown={(e) => e.key === "Enter" && handleSignIn()}
                   className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.password ? 'border-red-500' : 'border-dark-tertiary'
                     }`}
                 />

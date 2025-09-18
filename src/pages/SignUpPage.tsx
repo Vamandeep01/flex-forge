@@ -24,14 +24,18 @@ export default function SignUpPage() {
 
     if (!formData.email) {
       newErrors.email = "Email is required"
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
+      // stricter validation: Email regex is very loose (\S+@\S+\.\S+), so something like a@b.c passes.
+      // Change the regex for stricter validation
       newErrors.email = "Please enter a valid email address"
     }
+
 
     if (!formData.password) {
       newErrors.password = "Password is required"
     } else if (formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters"
+      // error message a bit friendlier and clearer
+      newErrors.password = "Password must be at least 8 characters and include uppercase, lowercase, and a number"
     } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
       newErrors.password = "Password must contain uppercase, lowercase, and number"
     }
@@ -79,14 +83,16 @@ export default function SignUpPage() {
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <label className="text-white text-sm font-medium">Email Address</label>
+              <label  htmlFor="email" className="text-white text-sm font-medium">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/60" />
                 <Input
+                  id="email"
                   type="email"
-                  placeholder="elementary221b@gmail.com"
+                  placeholder="example@email.com"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSignUp()}
                   className={`pl-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.email ? 'border-red-500' : 'border-dark-tertiary'
                     }`}
                 />
@@ -95,14 +101,16 @@ export default function SignUpPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-white text-sm font-medium">Password</label>
+              <label  htmlFor="password"  className="text-white text-sm font-medium">Password</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/60" />
                 <Input
+                  id="password" 
                   type={showPassword ? "text" : "password"}
                   placeholder="*************"
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSignUp()}
                   className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.password ? 'border-red-500' : 'border-dark-tertiary'
                     }`}
                 />
@@ -120,14 +128,16 @@ export default function SignUpPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-white text-sm font-medium">Confirm Password</label>
+              <label  htmlFor="confirmPassword" className="text-white text-sm font-medium">Confirm Password</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/60" />
                 <Input
+                  id="confirmPassword" 
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="elementary221"
                   value={formData.confirmPassword}
                   onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSignUp()}
                   className={`pl-12 pr-12 bg-dark-secondary text-white placeholder:text-white/50 h-14 rounded-xl ${errors.confirmPassword ? 'border-red-500' : 'border-dark-tertiary'
                     }`}
                 />
