@@ -2,24 +2,28 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, id, "aria-describedby": ariaDescribedBy, ...props }, ref) => {
     return (
       <input
         type={type}
+        id={id}
+        
+        // Accessibility improvements
+        aria-describedby={ariaDescribedBy}
+        
         // Disable all autocomplete features
-        autoComplete="new-password" // This is the most effective for preventing autofill
+        autoComplete="new-password"
         autoCorrect="off"
         autoCapitalize="off"
         spellCheck="false"
 
         // Additional PWA-specific attributes
-        data-form-type="other" // Prevents password managers from detecting form type
-        data-lpignore="true" // LastPass ignore
-        data-1p-ignore="true" // 1Password ignore
-        data-bwignore="true" // Bitwarden ignore
-        data-dashlane-ignore="true" // Dashlane ignore
+        data-form-type="other"
+        data-lpignore="true"
+        data-1p-ignore="true"
+        data-bwignore="true"
+        data-dashlane-ignore="true"
 
-        // React specific
         autoFocus={false}
 
         // Additional security attributes
@@ -35,7 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
         })}
 
         className={cn(
-          "flex h-12 w-full rounded-xl border-2 bg-dark-secondary px-4 py-3 text-base text-white placeholder:text-white/50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-FlexForge-orange focus-visible:border-FlexForge-orange focus-visible:ring-offset-0 focus-visible:ring-offset-dark-primary disabled:cursor-not-allowed disabled:opacity-50 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground",
+          "flex h-12 w-full rounded-xl border-2 bg-dark-secondary px-4 py-3 text-base text-white placeholder:text-white/50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-FlexForge-orange focus-visible:border-FlexForge-orange focus-visible:ring-offset-2 focus-visible:ring-offset-dark-primary disabled:cursor-not-allowed disabled:opacity-50 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground",
           className
         )}
         ref={ref}

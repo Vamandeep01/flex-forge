@@ -15,6 +15,9 @@ const InputOTP = React.forwardRef<
       containerClassName
     )}
     className={cn("disabled:cursor-not-allowed", className)}
+    // Accessibility improvements for OTP input
+    aria-label="One-time password input"
+    aria-describedby="otp-help"
     {...props}
   />
 ))
@@ -24,7 +27,13 @@ const InputOTPGroup = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex items-center", className)} {...props} />
+  <div 
+    ref={ref} 
+    className={cn("flex items-center", className)} 
+    role="group"
+    aria-label="OTP input group"
+    {...props} 
+  />
 ))
 InputOTPGroup.displayName = "InputOTPGroup"
 
@@ -40,9 +49,15 @@ const InputOTPSlot = React.forwardRef<
       ref={ref}
       className={cn(
         "relative flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
-        isActive && "z-10 ring-0 ring-ring ring-offset-background",
+        // Enhanced focus indicator using FlexForge orange theme
+        isActive && "z-10 ring-2 ring-FlexForge-orange ring-offset-2 ring-offset-background border-FlexForge-orange",
         className
       )}
+      // Accessibility improvements
+      role="textbox"
+      aria-label={`Digit ${index + 1} of verification code`}
+      aria-describedby="otp-instructions"
+      tabIndex={isActive ? 0 : -1}
       {...props}
     >
       {char}
@@ -59,8 +74,14 @@ InputOTPSlot.displayName = "InputOTPSlot"
 const InputOTPSeparator = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">
->(({ ...props }, ref) => (
-  <div ref={ref} role="separator" {...props}>
+>(({ className, ...props }, ref) => (
+  <div 
+    ref={ref} 
+    role="separator" 
+    aria-hidden="true"
+    className={cn("text-muted-foreground", className)}
+    {...props}
+  >
     <Dot />
   </div>
 ))
