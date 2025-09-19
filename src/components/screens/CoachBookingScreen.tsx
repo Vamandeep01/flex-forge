@@ -10,6 +10,7 @@ export default function CoachBookingScreen() {
   const { id } = useParams();
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>("");
+  const [isBooking, setIsBooking] = useState(false);
 
   const timeSlots = [
     "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM",
@@ -24,16 +25,22 @@ export default function CoachBookingScreen() {
     specialization: "AI Strength Coach"
   };
 
-  const handleBooking = () => {
+  const handleBooking = async () => {
     if (selectedDate && selectedTime) {
-      navigate(`/coach-payment/${id}`, {
-        state: {
-          coach,
-          date: selectedDate,
-          time: selectedTime,
-          price: coach.price
-        }
-      });
+      setIsBooking(true);
+      
+      // Simulate booking API call
+      setTimeout(() => {
+        navigate(`/coach-payment/${id}`, {
+          state: {
+            coach,
+            date: selectedDate,
+            time: selectedTime,
+            price: coach.price
+          }
+        });
+        setIsBooking(false);
+      }, 1000);
     }
   };
 
@@ -104,6 +111,7 @@ export default function CoachBookingScreen() {
                     : "border-border hover:bg-muted"
                 }`}
                 onClick={() => setSelectedTime(time)}
+                disabled={isBooking}
               >
                 {time}
               </Button>
@@ -148,10 +156,19 @@ export default function CoachBookingScreen() {
         <Button
           className="w-full h-14 text-lg font-semibold bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl disabled:opacity-50"
           onClick={handleBooking}
-          disabled={!selectedDate || !selectedTime}
+          disabled={!selectedDate || !selectedTime || isBooking}
         >
-          <User className="w-5 h-5 mr-2" />
-          Book Session - ${coach.price}
+          {isBooking ? (
+            <div className="flex items-center justify-center space-x-2">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              <span>Booking Session...</span>
+            </div>
+          ) : (
+            <>
+              <User className="w-5 h-5 mr-2" />
+              Book Session - ${coach.price}
+            </>
+          )}
         </Button>
       </div>
     </div>

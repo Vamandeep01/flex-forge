@@ -22,9 +22,12 @@ export default function SignInPage() {
 
     if (!formData.email) {
       newErrors.email = "Email is required"
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
+      // stricter validation: Email regex is very loose (\S+@\S+\.\S+), so something like a@b.c passes.
+      // Change the regex for stricter validation
       newErrors.email = "Please enter a valid email address"
     }
+
 
     if (!formData.password) {
       newErrors.password = "Password is required"
@@ -130,6 +133,8 @@ export default function SignInPage() {
                   placeholder="elementary221b@gmail.com"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
+                  // Expected behavior: pressing Enter in a field should also submit.
+                  onKeyDown={(e) => e.key === "Enter" && handleSignIn()}
                   aria-describedby={errors.email ? "email-error" : "email-help"}
                   aria-invalid={errors.email ? "true" : "false"}
                   aria-required="true"
@@ -167,6 +172,8 @@ export default function SignInPage() {
                   placeholder="************"
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
+                  // Expected behavior: pressing Enter in a field should also submit.
+                  onKeyDown={(e) => e.key === "Enter" && handleSignIn()}
                   aria-describedby={errors.password ? "password-error" : "password-help"}
                   aria-invalid={errors.password ? "true" : "false"}
                   aria-required="true"
