@@ -4,6 +4,153 @@
 
 **FlexForge** is a comprehensive Progressive Web App (PWA) for fitness tracking, health monitoring, nutrition management, and AI-powered personal coaching. The app features a sleek dark theme with vibrant orange accents and provides a complete ecosystem for users to achieve their fitness goals.
 
+---
+
+## 🚀 Quick Start - For Developer
+
+Follow these steps to get **FlexForge Fitness PWA** running locally:
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd <your-project-folder>
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+* Make sure you have Node.js **v22.4.0** and npm **10.8.1** installed.
+* If you encounter errors related to package versions or peer dependencies, try:
+
+```bash
+npm install --legacy-peer-deps
+```
+
+* If installation still fails, remove `node_modules` and `package-lock.json` and run:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+* This project currently **does not require a backend or database**, so all dependencies are frontend-only.
+
+### 3️⃣ Run the development server
+
+```bash
+npm run dev
+```
+
+* Open [http://localhost:8000](http://localhost:8000) in your browser.
+* The app supports **hot module replacement (HMR)** for live updates.
+
+### 4️⃣ Build for production
+
+```bash
+npm run build
+```
+
+* The production-ready files will be in the `dist/` folder.
+
+### 5️⃣ Preview the production build
+
+```bash
+npm run preview
+```
+
+* Open [http://localhost:4173](http://localhost:4173) (or shown in terminal).
+
+### 6️⃣ Lint your code
+
+```bash
+npm run lint
+```
+
+* Automatically checks for formatting and code quality issues.
+* Use `eslint . --fix` to auto-fix minor errors.
+
+**Optional Notes**
+
+* Recommended browsers: **Chrome, Firefox, Edge** (latest versions).
+* For mobile testing, enable **device toolbar** in browser DevTools.
+* No `.env` or backend setup is required for now.
+
+---
+
+## ⚡ Troubleshooting
+
+**Common Issues:**
+
+1. **`npm install` fails due to version mismatch**
+
+   * Ensure Node.js is **v22.4.0** and npm is **10.8.1**.
+   * Try:
+
+     ```bash
+     npm install --legacy-peer-deps
+     ```
+
+2. **`node_modules` issues**
+
+   * Remove existing `node_modules` and `package-lock.json`:
+
+     ```bash
+     rm -rf node_modules package-lock.json
+     npm install
+     ```
+
+3. **Port conflicts**
+
+   * If `vite` cannot start, ensure port **8000** is free or change the port:
+
+     ```bash
+     npm run dev -- --port 5174
+     ```
+
+4. **Browser caching issues**
+
+   * Clear cache or use an incognito window for testing PWA changes.
+
+5. **Hot Module Replacement (HMR) not updating**
+
+   * Stop the dev server and restart:
+
+     ```bash
+     npm run dev
+     ```
+
+6. **Other Node/npm errors**
+
+   * Update npm to the latest compatible version:
+
+     ```bash
+     npm install -g npm@10.8.1
+     ```
+   * Reinstall Node.js if necessary.
+
+---
+
+## 📝 Notes
+
+* The project is **frontend-only**: no API or database integration is needed.
+* Designed as a **PWA**, supports offline usage.
+* Ensure your system meets the **Node.js and npm versions** to avoid dependency issues.
+
+---
+
+## 📞 Support
+
+For any further issues, please create an **issue on the GitHub repository** describing the problem and your environment (Node version, npm version, OS).
+
+---
+
+
+## Project Detail
+ 
 ### ⚡ Key Features
 - **AI-Powered Virtual Coaching** with real-time chat support
 - **Comprehensive Fitness Assessment** and personalized scoring
